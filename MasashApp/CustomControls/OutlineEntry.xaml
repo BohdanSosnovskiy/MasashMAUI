@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             RowDefinitions="50"
+             xmlns:handlers="clr-namespace:MasashApp.Handlers"
+             x:Class="MasashApp.CustomControls.OutlineEntry">
+    <Frame Grid.Row="0" Padding="5" BorderColor="Gray" CornerRadius="0" BackgroundColor="#f8f8f8">
+        <handlers:BorderlessEntry x:Name="txtEntry" Text="{Binding Text, Mode=TwoWay}" PropertyChanged="txtEntry_PropertyChanged" Focused="txtEntry_Focused" Unfocused="txtEntry_Unfocused"/>
+    </Frame>
+
+    <Label 
+        x:Name="lblPlaceholder"
+        Grid.Row="0"
+        TextColor="Gray"
+        BackgroundColor="Transparent"
+        Margin="10,0,0,0"
+        
+        Text="{Binding Placeholder_custom, Mode=TwoWay}"
+        HorizontalOptions="StartAndExpand"
+        VerticalOptions="CenterAndExpand"/>
+    <Grid.GestureRecognizers>
+        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+    </Grid.GestureRecognizers>
+</Grid>

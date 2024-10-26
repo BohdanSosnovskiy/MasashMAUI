@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title=""
+             x:Class="MasashApp.MainPage"
+             xmlns:local="clr-namespace:MasashApp">
+    
+    <Grid x:Name="MainGrid">
+        <!--Navbar-->
+        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource NavBar_Baground_Light}, Dark={StaticResource NavBar_Baground_Dark}}" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+            <Label Margin="20,10,0,0" Text="FITMASSAGE" TextColor="{StaticResource Gray100}"/>
+            <Label Margin="20,30,0,0" FontSize="12" Text="{Binding Address}" TextColor="{StaticResource Gray200}"/>
+            <Image Source="info_logo.png" Margin="0, 0, 40, 0" HeightRequest="40"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit" />
+            <Image Source="icon_user_vector.svg" Margin="0, 0, 10, 0" HeightRequest="25"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="White" />
+                </Image.Behaviors>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="SelectAuth_Touch"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+        <Label Margin="20,130,0,0" HorizontalOptions="Start" FontSize="23" FontAttributes="Bold" VerticalOptions="Start" Text="Детали визита" TextColor="Black"/>
+        <StackLayout Margin="0,200,0,0" HorizontalOptions="Fill" VerticalOptions="Start">
+            <!--Выбор мастера-->
+            <Grid>
+                <Label Text="Мастер"  VerticalOptions="Start" HorizontalOptions="Start" Margin="20,10,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}"/>
+                <Grid Margin="20,40,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SelectMaster_Touch"/>
+                    </Grid.GestureRecognizers>
+                    <Border/>
+                    <BoxView BackgroundColor="Black" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill"/>
+                    <Image Source="icon_user_vector.svg" Margin="10, 0, 0, 0" HorizontalOptions="Start" WidthRequest="40" Aspect="AspectFit">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="White" />
+                        </Image.Behaviors>
+                    </Image>
+                    <Label Text="Выбирите мастера" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}"/>
+                    <Image Source="icon_forward.png" Margin="0, 0, 10, 0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}" />
+                        </Image.Behaviors>
+                    </Image>
+                </Grid>
+            </Grid>
+            <!--Выбор Услуги-->
+            <Grid>
+                <Label Text="Услуга"  VerticalOptions="Start" HorizontalOptions="Start" Margin="20,10,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}"/>
+                <Grid Margin="20,40,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SelectService_Touch"/>
+                    </Grid.GestureRecognizers>
+                    <Border/>
+                    <BoxView BackgroundColor="Black" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill"/>
+                    <Image Source="icon_accept.png" Margin="10, 0, 0, 0" HorizontalOptions="Start" WidthRequest="40" Aspect="AspectFit">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="White" />
+                        </Image.Behaviors>
+                    </Image>
+                    <Label Text="Выбирите услугу" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}"/>
+                    <Image Source="icon_forward.png" Margin="0, 0, 10, 0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}" />
+                        </Image.Behaviors>
+                    </Image>
+                </Grid>
+            </Grid>
+            <!--Выбор Даты и Времени-->
+            <Grid>
+                <Label Text="Дата и время"  VerticalOptions="Start" HorizontalOptions="Start" Margin="20,10,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}"/>
+                <Grid Margin="20,40,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SelectDateTime_Touch"/>
+                    </Grid.GestureRecognizers>
+                    <Border/>
+                    <BoxView BackgroundColor="Black" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill"/>
+                    <Image Source="icon_calendar.png" Margin="10, 0, 0, 0" HorizontalOptions="Start" WidthRequest="40" Aspect="AspectFit">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="White" />
+                        </Image.Behaviors>
+                    </Image>
+                    <Label Text="Выбирите дату и время" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}"/>
+                    <Image Source="icon_forward.png" Margin="0, 0, 10, 0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}" />
+                        </Image.Behaviors>
+                    </Image>
+                </Grid>
+            </Grid>
+            <Grid Margin="20,30,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}">
+                <Label Text="Оформить визит" VerticalOptions="Center" HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray950}}"/>
+            </Grid>
+        </StackLayout>
+    </Grid>
+    
+
+</ContentPage>

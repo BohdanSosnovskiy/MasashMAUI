@@ -61,6 +61,18 @@ build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.Page_Auth.xaml
 build_metadata.AdditionalFiles.TargetPath = Page_Auth.xaml
 build_metadata.AdditionalFiles.RelativePath = Page_Auth.xaml
 
+[M:/Projects/MasashMAUI/MasashApp/Page_notifications.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.Page_notifications.xaml
+build_metadata.AdditionalFiles.TargetPath = Page_notifications.xaml
+build_metadata.AdditionalFiles.RelativePath = Page_notifications.xaml
+
+[M:/Projects/MasashMAUI/MasashApp/Page_PersonalData.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.Page_PersonalData.xaml
+build_metadata.AdditionalFiles.TargetPath = Page_PersonalData.xaml
+build_metadata.AdditionalFiles.RelativePath = Page_PersonalData.xaml
+
 [M:/Projects/MasashMAUI/MasashApp/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.Resources.Styles.Colors.xaml

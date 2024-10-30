@@ -1606,7 +1606,6 @@ M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\assets\zh-Hans
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\assets\zh-Hant\Microsoft.Maui.Controls.resources.dll
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\assets\zh-HK\Microsoft.Maui.Controls.resources.dll
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\assets\_Microsoft.Android.Resource.Designer.dll
-M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\typemaps.armeabi-v7a.ll
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\AndroidManifest.xml
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\AndroidManifest.xml
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\src\mono\MonoRuntimeProvider.java
@@ -1616,7 +1615,6 @@ M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\bin\mono.andro
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\static.flag
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\__environment__.txt
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\buildid.txt
-M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\environment.armeabi-v7a.ll
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\src\androidx\activity\ktx\R.java
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\src\androidx\activity\R.java
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\src\androidx\annotation\experimental\R.java
@@ -2121,13 +2119,6 @@ M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\src\mono\MonoP
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\bin\packaged_resources
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\src\com\companyname\masashapp\R.java
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\_CompileJava.FileList.txt
-M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\compressed_assemblies.armeabi-v7a.ll
-M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\typemaps.armeabi-v7a.o
-M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\environment.armeabi-v7a.o
-M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\compressed_assemblies.armeabi-v7a.o
-M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\marshal_methods.armeabi-v7a.o
-M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\jni_remap.armeabi-v7a.o
-M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\app_shared_libraries\armeabi-v7a\libxamarin-app.so
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\bin\classes.dex
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\bin\classes2.dex
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\stamp\_CleanIntermediateIfNeeded.stamp
@@ -2138,3 +2129,14 @@ M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\stamp\_ConvertResource
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\stamp\_GenerateJavaStubs.stamp
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\stamp\_GeneratePackageManagerJava.stamp
 M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\stamp\_ResolveLibraryProjectImports.stamp
+M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\MasashApp.sourcelink.json
+M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\resizetizer\r\drawable\mramor.jpg
+M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\typemaps.armeabi-v7a.ll
+M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\environment.armeabi-v7a.ll
+M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\compressed_assemblies.armeabi-v7a.ll
+M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\typemaps.armeabi-v7a.o
+M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\environment.armeabi-v7a.o
+M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\compressed_assemblies.armeabi-v7a.o
+M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\marshal_methods.armeabi-v7a.o
+M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\android\jni_remap.armeabi-v7a.o
+M:\Projects\MasashMAUI\MasashApp\obj\Debug\net8.0-android\app_shared_libraries\armeabi-v7a\libxamarin-app.so

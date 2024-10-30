@@ -3,6 +3,15 @@ using System.Runtime.CompilerServices;
 
 namespace MasashApp.CustomControls;
 
+public enum EntryTypes
+{
+    Text = 0,
+    Email = 1,
+    Date = 2,
+    Phone = 3,
+}
+
+
 public partial class OutlineEntry : Grid, INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
@@ -38,6 +47,64 @@ public partial class OutlineEntry : Grid, INotifyPropertyChanged
             OnPropertyChanged();
         }
 	}
+
+    public static readonly BindableProperty TypeProperty = BindableProperty.Create(
+            propertyName: nameof(EntryType),
+            returnType: typeof(EntryTypes),
+            defaultValue: EntryTypes.Text,
+            declaringType: typeof(OutlineEntry),
+            defaultBindingMode: BindingMode.TwoWay
+        );
+
+    public EntryTypes EntryType
+    {
+        get
+        {
+            return (EntryTypes)GetValue(TypeProperty);
+        }
+        set
+        {
+            SetValue(TypeProperty, value);
+            if(value == EntryTypes.Text)
+            {
+                icon_cal.IsVisible = false;
+            }
+            else if(value == EntryTypes.Phone)
+            {
+                icon_cal.IsVisible = false;
+            }
+            else if (value == EntryTypes.Email)
+            {
+                icon_cal.IsVisible = false;
+            }
+            else if (value == EntryTypes.Date)
+            {
+                icon_cal.IsVisible = true;
+            }
+            OnPropertyChanged();
+        }
+    }
+
+    public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(
+            propertyName: nameof(FontSize_custom),
+            returnType: typeof(int),
+            defaultValue: 14,
+            declaringType: typeof(OutlineEntry),
+            defaultBindingMode: BindingMode.TwoWay
+        );
+
+    public int FontSize_custom
+    {
+        get
+        {
+            return (int)GetValue(FontSizeProperty);
+        }
+        set
+        {
+            SetValue(FontSizeProperty, value);
+            OnPropertyChanged();
+        }
+    }
 
     public static readonly BindableProperty PlaceholderTextProperty = BindableProperty.Create(
             propertyName: nameof(Placeholder_custom),

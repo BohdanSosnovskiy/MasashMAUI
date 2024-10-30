@@ -6,6 +6,10 @@
     <ActiveDebugProfile>Xiaomi M2006C3MNG (Android 10.0 — API 29)</ActiveDebugProfile>
     <SelectedPlatformGroup>PhysicalDevice</SelectedPlatformGroup>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetPlatformIdentifier)'=='iOS'">
+    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+    <PlatformTarget>arm64</PlatformTarget>
+  </PropertyGroup>
   <ItemGroup>
     <MauiXaml Update="CustomControls\OutlineEntry.xaml">
       <SubType>Designer</SubType>
@@ -17,6 +21,12 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Page_Auth.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Page_notifications.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Page_PersonalData.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

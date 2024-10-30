@@ -70,6 +70,7 @@
 	  <None Remove="Resources\Images\icon_user.png" />
 	  <None Remove="Resources\Images\icon_user_vector.svg" />
 	  <None Remove="Resources\Images\info_logo.png" />
+	  <None Remove="Resources\Images\mramor.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -90,6 +91,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Page_Auth.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Page_notifications.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Page_PersonalData.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

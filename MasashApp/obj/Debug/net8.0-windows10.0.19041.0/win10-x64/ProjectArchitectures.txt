@@ -1,1 +1,1 @@
-C:\Users\Alex\source\repos\MasashApp\MasashApp\MasashApp.csproj;x64
+M:\Projects\MasashMAUI\MasashApp\MasashApp.csproj;x64

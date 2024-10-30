@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              RowDefinitions="50"
              xmlns:handlers="clr-namespace:MasashApp.Handlers"
              x:Class="MasashApp.CustomControls.OutlineEntry">
-    <Frame Grid.Row="0" Padding="5" BorderColor="Gray" CornerRadius="0" BackgroundColor="#f8f8f8">
-        <handlers:BorderlessEntry x:Name="txtEntry" Text="{Binding Text, Mode=TwoWay}" PropertyChanged="txtEntry_PropertyChanged" Focused="txtEntry_Focused" Unfocused="txtEntry_Unfocused"/>
+    
+
+    <Frame x:Name="BorderFrame" Grid.Row="0" Padding="5" BorderColor="Gray" CornerRadius="0" BackgroundColor="#f8f8f8">
+        <handlers:BorderlessEntry
+            x:Name="txtEntry" 
+            FontSize="{Binding FontSize_custom}"
+            Text="{Binding Text, Mode=TwoWay}" 
+            PropertyChanged="txtEntry_PropertyChanged" 
+            Focused="txtEntry_Focused" 
+            Unfocused="txtEntry_Unfocused"
+        />
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+        </Frame.GestureRecognizers>
     </Frame>
 
     <Label 
@@ -18,7 +31,12 @@
         Text="{Binding Placeholder_custom, Mode=TwoWay}"
         HorizontalOptions="StartAndExpand"
         VerticalOptions="CenterAndExpand"/>
-    <Grid.GestureRecognizers>
-        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-    </Grid.GestureRecognizers>
+
+    <Image x:Name="icon_cal" IsVisible="False" Grid.Row="0" Source="icon_calendar.png" Margin="0, 0, 10, 0" HeightRequest="45"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit">
+        <Image.Behaviors>
+            <toolkit:IconTintColorBehavior TintColor="Gray" />
+        </Image.Behaviors>
+    </Image>
+
+    
 </Grid>

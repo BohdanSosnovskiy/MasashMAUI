@@ -6,6 +6,7 @@
              Title="">
     <Grid>
         <Grid BackgroundColor="{AppThemeBinding Light={StaticResource NavBar_Baground_Light}, Dark={StaticResource NavBar_Baground_Dark}}" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+            <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
             <Label Margin="40,0,0,0" VerticalOptions="Center" Text="Личный кабинет" TextColor="{StaticResource White}"/>
 
             <Image Source="icon_back.png" Margin="10, 0, 0, 0" HeightRequest="25"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit">
@@ -17,14 +18,14 @@
                 </Image.GestureRecognizers>
             </Image>
         </Grid>
-        <Grid BackgroundColor="White" Margin="0,60,0,0" HorizontalOptions="Fill" VerticalOptions="Fill">
+        <Grid BackgroundColor="Gray" Margin="0,60,0,0" HorizontalOptions="Fill" VerticalOptions="Fill">
             <Image Source="icon_user_vector.svg" Margin="0, 50, 0, 0" HeightRequest="100"  HorizontalOptions="Center" VerticalOptions="Start" Aspect="AspectFit">
                 <Image.Behaviors>
-                    <toolkit:IconTintColorBehavior TintColor="Black" />
+                    <toolkit:IconTintColorBehavior TintColor="White" />
                 </Image.Behaviors>
             </Image>
 
-            <StackLayout BackgroundColor="White" Margin="0, 150, 0, 0">
+            <StackLayout Margin="0, 150, 0, 0">
                 <Grid Margin="20,40,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Tapped="personal_data_toch"/>
@@ -32,7 +33,7 @@
                     <Border StrokeThickness="1" HeightRequest="1" VerticalOptions="End"/>
                     <Image Source="icon_user_vector.svg" Margin="15, 0, 0, 0" HorizontalOptions="Start" WidthRequest="30" Aspect="AspectFit">
                         <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="Gray" />
+                            <toolkit:IconTintColorBehavior TintColor="White" />
                         </Image.Behaviors>
                     </Image>
                     <Label Text="Личные данные" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}"/>
@@ -49,7 +50,7 @@
                     <Border StrokeThickness="1" HeightRequest="1" VerticalOptions="End"/>
                     <Image Source="icon_time.png" Margin="10, 0, 0, 0" HorizontalOptions="Start" WidthRequest="40" Aspect="AspectFit">
                         <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="Gray" />
+                            <toolkit:IconTintColorBehavior TintColor="White" />
                         </Image.Behaviors>
                     </Image>
                     <Label Text="Мои визиты" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}"/>
@@ -66,7 +67,7 @@
                     <Border StrokeThickness="1" HeightRequest="1" VerticalOptions="End"/>
                     <Image Source="icon_mail.png" Margin="10, 0, 0, 0" HorizontalOptions="Start" WidthRequest="40" Aspect="AspectFit">
                         <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="Gray" />
+                            <toolkit:IconTintColorBehavior TintColor="White" />
                         </Image.Behaviors>
                     </Image>
                     <Label Text="Оповищения" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}"/>
@@ -83,7 +84,7 @@
                     <Border StrokeThickness="1" HeightRequest="1" VerticalOptions="End"/>
                     <Image Source="icon_discond.png" Margin="10, 0, 0, 0" HorizontalOptions="Start" WidthRequest="40" Aspect="AspectFit">
                         <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="Gray" />
+                            <toolkit:IconTintColorBehavior TintColor="White" />
                         </Image.Behaviors>
                     </Image>
                     <Label Text="Лояльность" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}"/>
@@ -100,7 +101,7 @@
                     <Border StrokeThickness="1" HeightRequest="1" VerticalOptions="End"/>
                     <Image Source="icon_settings.png" Margin="10, 0, 0, 0" HorizontalOptions="Start" WidthRequest="40" Aspect="AspectFit">
                         <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="Gray" />
+                            <toolkit:IconTintColorBehavior TintColor="White" />
                         </Image.Behaviors>
                     </Image>
                     <Label Text="Настройки" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}"/>
@@ -117,7 +118,7 @@
                     <Border StrokeThickness="1" HeightRequest="1" VerticalOptions="End"/>
                     <Image Source="icon_back.png" Margin="10, 0, 0, 0" HorizontalOptions="Start" WidthRequest="40" Aspect="AspectFit">
                         <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="Gray" />
+                            <toolkit:IconTintColorBehavior TintColor="White" />
                         </Image.Behaviors>
                     </Image>
                     <Label Text="Выйти" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}"/>

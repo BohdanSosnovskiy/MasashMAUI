@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MasashApp.Page_selectMaster"
+             Title="Page_selectMaster">
+    <Grid>
+        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource NavBar_Baground_Light}, Dark={StaticResource NavBar_Baground_Dark}}" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+            <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+            <Label Margin="40,0,0,0" VerticalOptions="Center" Text="Выбирите мастера" TextColor="{StaticResource White}"/>
+
+            <Image Source="icon_back.png" Margin="10, 0, 0, 0" HeightRequest="25"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="White" />
+                </Image.Behaviors>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Back_Touch"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+        <Grid Margin="0,60,0,0" BackgroundColor="Gray">
+            <Grid Padding="20" BackgroundColor="White" VerticalOptions="Start" HorizontalOptions="Fill">
+                <Frame Padding="0" CornerRadius="50" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="70" HeightRequest="70">
+                    <Image Source="mramor.jpg" Margin="0, 0, 0, 0" WidthRequest="70" HeightRequest="70" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                </Frame>
+                <Label Margin="90,0,0,0" VerticalOptions="Start" FontAttributes="Bold" FontSize="15" Text="Мастера" TextColor="Black"/>
+                <Label Margin="90,20,0,0" VerticalOptions="Start" FontSize="12" Text="Мастер" TextColor="Gray"/>
+                <HorizontalStackLayout Spacing="-25" Margin="75,40,0,0" Padding="0" VerticalOptions="Start" HorizontalOptions="Start">
+                    <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="#fca103" />
+                        </Image.Behaviors>
+                    </Image>
+                    <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="#fca103" />
+                        </Image.Behaviors>
+                    </Image>
+                    <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="#fca103" />
+                        </Image.Behaviors>
+                    </Image>
+                    <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="#fca103" />
+                        </Image.Behaviors>
+                    </Image>
+                    <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="#fca103" />
+                        </Image.Behaviors>
+                    </Image>
+                </HorizontalStackLayout>
+                <Label Margin="90,90,0,0" VerticalOptions="Start" FontSize="12" Text="30 отзывов" TextColor="Gray"/>
+                <Label Margin="220,55,0,0" VerticalOptions="Start" FontSize="15" FontAttributes="Bold" Text="5" TextColor="Gray"/>
+                <Image Source="icon_forward.png" HeightRequest="20" WidthRequest="20" Margin="230,56,0,0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="Gray" />
+                    </Image.Behaviors>
+                </Image>
+
+                <Label Margin="0,0,0,0" VerticalOptions="Start" HorizontalOptions="End" FontSize="15" FontAttributes="Bold" Text="23" TextColor="Black"/>
+                <Label Margin="0,20,0,0" VerticalOptions="Start" HorizontalOptions="End" FontSize="15" FontAttributes="Bold" Text="Августа" TextColor="Black"/>
+                <Label Margin="0,50,0,0" VerticalOptions="Start" HorizontalOptions="End" FontSize="12" Text="Ближайший" TextColor="Gray"/>
+                <Label Margin="0,70,0,0" VerticalOptions="Start" HorizontalOptions="End" FontSize="12" Text="день" TextColor="Gray"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

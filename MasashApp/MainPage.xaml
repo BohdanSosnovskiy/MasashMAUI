@@ -14,7 +14,7 @@
             <Label Margin="20,30,0,0" FontSize="12" Text="{Binding Address}" TextColor="{StaticResource White}"/>
             
             <Image Source="info_logo.png" Margin="0, 0, 40, 0" HeightRequest="40"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit" />
-            <Image Source="icon_user_vector.svg" Margin="0, 0, 10, 0" HeightRequest="25"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit">
+            <Image Source="info_logo.png" Margin="0, 0, 10, 0" HeightRequest="25"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit">
                 <Image.Behaviors>
                     <toolkit:IconTintColorBehavior TintColor="White" />
                 </Image.Behaviors>
@@ -98,7 +98,7 @@
             </Grid>
             <Grid Margin="20,30,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}">
                 <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
-                <Label Text="Оформить визит" VerticalOptions="Center" HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray950}}"/>
+                <Label Text="Оформить визит" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
             </Grid>
         </StackLayout>
     </Grid>

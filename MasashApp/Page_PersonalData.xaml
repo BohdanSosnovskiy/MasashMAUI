@@ -7,6 +7,7 @@
              Title="">
     <Grid>
         <Grid BackgroundColor="{AppThemeBinding Light={StaticResource NavBar_Baground_Light}, Dark={StaticResource NavBar_Baground_Dark}}" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+            <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
             <Label Margin="40,0,0,0" VerticalOptions="Center" Text="Персональные данные" TextColor="{StaticResource White}"/>
 
             <Image Source="icon_back.png" Margin="10, 0, 0, 0" HeightRequest="25"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit">
@@ -18,7 +19,7 @@
                 </Image.GestureRecognizers>
             </Image>
         </Grid>
-        <Grid BackgroundColor="White" Margin="0,60,0,0" VerticalOptions="Fill" HorizontalOptions="Fill">
+        <Grid BackgroundColor="Gray" Margin="0,60,0,0" VerticalOptions="Fill" HorizontalOptions="Fill">
             <StackLayout Margin="20,40,20,0">
                 <customControls:OutlineEntry Margin="0,0,0,0" EntryType="Phone" Placeholder_custom="Телефон"/>
                 <customControls:OutlineEntry Margin="0,10,0,0" EntryType="Text" Placeholder_custom="Имя"/>
@@ -26,7 +27,7 @@
                 <customControls:OutlineEntry Margin="0,10,0,0" EntryType="Email" Placeholder_custom="Email"/>
                 <Grid Margin="0,30,0,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}">
                     <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
-                    <Label Text="Сохранить" VerticalOptions="Center" HorizontalOptions="Center" TextColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray950}}"/>
+                    <Label Text="Сохранить" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
                 </Grid>
             </StackLayout>
         </Grid>

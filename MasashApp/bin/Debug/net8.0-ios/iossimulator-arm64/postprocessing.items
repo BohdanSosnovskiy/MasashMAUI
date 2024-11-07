@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_PostProcessingItem Include="MasashApp.app/MasashApp">
+      <IsAppExtension>false</IsAppExtension>
+      <BCSymbolMapName>MasashApp.bcsymbolmap</BCSymbolMapName>
+      <NoDSymUtil>true</NoDSymUtil>
+      <dSYMSourcePathExists>false</dSYMSourcePathExists>
+      <NoSymbolStrip>true</NoSymbolStrip>
+      <dSYMInfoPlistRelativePath>MasashApp.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
+      <SymbolFile>\Users\ms102\Library\Caches\Xamarin\mtbs\builds\MasashApp\c8facc24b5825fc1d754723390c50a6a0d43cbd54edde1397c6a455bd3c279c4\obj\Debug\net8.0-ios\iossimulator-arm64\mtouch-symbols.list</SymbolFile>
+      <DSymName>MasashApp.app.dSYM</DSymName>
+      <SourceProjectPath>C:\Project\MasashMAUI\MasashApp</SourceProjectPath>
+      <IsXPCService></IsXPCService>
+    </_PostProcessingItem>
+  </ItemGroup>
+</Project>

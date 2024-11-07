@@ -16,24 +16,24 @@ public partial class PageInfoAccaunt : ContentPage
         await Navigation.PushModalAsync(new Page_PersonalData(), false);
     }
 
-    public void History_Visit_Toch(object sender, TappedEventArgs e)
+    public async void History_Visit_Toch(object sender, TappedEventArgs e)
     {
-
+        await Navigation.PushModalAsync(new Page_historyinfo(), false);
     }
 
-    public void Notification_Toch(object sender, TappedEventArgs e)
+    public async void Notification_Toch(object sender, TappedEventArgs e)
     {
-
+        await Navigation.PushModalAsync(new Page_notifications(), false);
     }
 
-    public void Descond_Toch(object sender, TappedEventArgs e)
+    public async void Descond_Toch(object sender, TappedEventArgs e)
     {
-
+        await Navigation.PushModalAsync(new Page_discond(), false);
     }
 
-    public void Settings_Toch(object sender, TappedEventArgs e)
+    public async void Settings_Toch(object sender, TappedEventArgs e)
     {
-
+        await Navigation.PushModalAsync(new Page_settings(), false);
     }
 
     public void Logout_Toch(object sender, TappedEventArgs e)

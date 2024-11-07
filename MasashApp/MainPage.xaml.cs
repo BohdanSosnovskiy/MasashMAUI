@@ -38,7 +38,7 @@ namespace MasashApp
 
         public async void SelectMaster_Touch(object sender, TappedEventArgs e)
         {
-
+            await Navigation.PushModalAsync(new Page_selectMaster(), false);
         }
 
         public async void SelectService_Touch(object sender, TappedEventArgs e)

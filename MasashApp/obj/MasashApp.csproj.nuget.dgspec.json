@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "M:\\Projects\\MasashMAUI\\MasashApp\\MasashApp.csproj": {}
+    "C:\\Project\\MasashMAUI\\MasashApp\\MasashApp.csproj": {}
   },
   "projects": {
-    "M:\\Projects\\MasashMAUI\\MasashApp\\MasashApp.csproj": {
+    "C:\\Project\\MasashMAUI\\MasashApp\\MasashApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "M:\\Projects\\MasashMAUI\\MasashApp\\MasashApp.csproj",
+        "projectUniqueName": "C:\\Project\\MasashMAUI\\MasashApp\\MasashApp.csproj",
         "projectName": "MasashApp",
-        "projectPath": "M:\\Projects\\MasashMAUI\\MasashApp\\MasashApp.csproj",
-        "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-        "outputPath": "M:\\Projects\\MasashMAUI\\MasashApp\\obj\\",
+        "projectPath": "C:\\Project\\MasashMAUI\\MasashApp\\MasashApp.csproj",
+        "packagesPath": "C:\\Users\\Админ\\.nuget\\packages\\",
+        "outputPath": "C:\\Project\\MasashMAUI\\MasashApp\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Админ\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MasashApp.Page_selectDateTime"
+             Title="Page_selectDateTime">
+    <Grid>
+        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource NavBar_Baground_Light}, Dark={StaticResource NavBar_Baground_Dark}}" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+            <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+            <Label Margin="40,0,0,0" VerticalOptions="Center" Text="Выбирите дату и время" TextColor="{StaticResource White}"/>
+
+            <Image Source="icon_back.png" Margin="10, 0, 0, 0" HeightRequest="25"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="White" />
+                </Image.Behaviors>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Back_Touch"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+        <Grid Margin="0,60,0,0" BackgroundColor="White">
+            <Grid BackgroundColor="#f5f5f7" VerticalOptions="Start" HorizontalOptions="Fill">
+                <Grid Margin="25,0,25,0" HorizontalOptions="Fill" VerticalOptions="Start">
+                    <Image Source="icon_back.png" Margin="10, 0, 0, 0" HeightRequest="25"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="Gray" />
+                        </Image.Behaviors>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Prew_Mounth"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="icon_forward.png" Margin="0, 0, 10, 0" HeightRequest="25"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="Gray" />
+                        </Image.Behaviors>
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Next_Mounth"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label x:Name="LabelMouth" Text="Август" FontSize="32" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Grid>
+                <Grid Margin="25,50,25,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Пн" Grid.Column="0" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    <Label Text="Вт" Grid.Column="1" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    <Label Text="Ср" Grid.Column="2" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    <Label Text="Чт" Grid.Column="3" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    <Label Text="Пт" Grid.Column="4" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    <Label Text="Сб" Grid.Column="5" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    <Label Text="Вс" Grid.Column="6" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                </Grid>
+                <Frame Margin="40,110,40,0" CornerRadius="0" BorderColor="#c2c2c3" HeightRequest="1" HorizontalOptions="Fill" VerticalOptions="Start" />
+                <Grid x:Name="Grid_labesDate" HeightRequest="250" Margin="25,130,25,0" HorizontalOptions="Fill" VerticalOptions="Start">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!--line 1-->
+                    <Frame x:Name="frame_0_0" Margin="2" Grid.Column="0" Grid.Row="0" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Transparent" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_0_0" Text="30" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_0_1" Margin="2" Grid.Column="1" Grid.Row="0" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_0_1" Text="23" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White"/>
+                    </Frame>
+                    <Frame x:Name="frame_0_2" Margin="2" Grid.Column="2" Grid.Row="0" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_0_2" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+                    </Frame>
+                    <Frame x:Name="frame_0_3" Margin="2" Grid.Column="3" Grid.Row="0" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_0_3" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_0_4" Margin="2" Grid.Column="4" Grid.Row="0" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_0_4" Text="0" Grid.Column="4" Grid.Row="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_0_5" Margin="2" Grid.Column="5" Grid.Row="0" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_0_5" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_0_6" Margin="2" Grid.Column="6" Grid.Row="0" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_0_6" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <!--line 2-->
+                    <Frame x:Name="frame_1_0" Margin="2" Grid.Column="0" Grid.Row="1" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_1_0" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_1_1" Margin="2" Grid.Column="1" Grid.Row="1" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_1_1" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_1_2" Margin="2" Grid.Column="2" Grid.Row="1" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_1_2" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_1_3" Margin="2" Grid.Column="3" Grid.Row="1" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_1_3" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_1_4" Margin="2" Grid.Column="4" Grid.Row="1" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_1_4" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_1_5" Margin="2" Grid.Column="5" Grid.Row="1" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_1_5" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_1_6" Margin="2" Grid.Column="6" Grid.Row="1" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_1_6" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <!--line 3-->
+                    <Frame x:Name="frame_2_0" Margin="2" Grid.Column="0" Grid.Row="2" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_2_0" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_2_1" Margin="2" Grid.Column="1" Grid.Row="2" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_2_1" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_2_2" Margin="2" Grid.Column="2" Grid.Row="2" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_2_2" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_2_3" Margin="2" Grid.Column="3" Grid.Row="2" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_2_3" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_2_4" Margin="2" Grid.Column="4" Grid.Row="2" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_2_4" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_2_5" Margin="2" Grid.Column="5" Grid.Row="2" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_2_5" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_2_6" Margin="2" Grid.Column="6" Grid.Row="2" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_2_6" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <!--line 4-->
+                    <Frame x:Name="frame_3_0" Margin="2" Grid.Column="0" Grid.Row="3" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_3_0" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_3_1" Margin="2" Grid.Column="1" Grid.Row="3" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_3_1" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_3_2" Margin="2" Grid.Column="2" Grid.Row="3" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_3_2" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_3_3" Margin="2" Grid.Column="3" Grid.Row="3" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_3_3" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_3_4" Margin="2" Grid.Column="4" Grid.Row="3" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_3_4" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_3_5" Margin="2" Grid.Column="5" Grid.Row="3" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_3_5" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_3_6" Margin="2" Grid.Column="6" Grid.Row="3" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_3_6" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <!--line 5-->
+                    <Frame x:Name="frame_4_0" Margin="2" Grid.Column="0" Grid.Row="4" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_4_0" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_4_1" Margin="2" Grid.Column="1" Grid.Row="4" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_4_1" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_4_2" Margin="2" Grid.Column="2" Grid.Row="4" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_4_2" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_4_3" Margin="2" Grid.Column="3" Grid.Row="4" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_4_3" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_4_4" Margin="2" Grid.Column="4" Grid.Row="4" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_4_4" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_4_5" Margin="2" Grid.Column="5" Grid.Row="4" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_4_5" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                    <Frame x:Name="frame_4_6" Margin="2" Grid.Column="6" Grid.Row="4" CornerRadius="0" Padding="0" BorderColor="Black" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ItemCalendar_Touch"/>
+                        </Frame.GestureRecognizers>
+                        <Label x:Name="label_4_6" Text="0" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Gray"/>
+                    </Frame>
+                </Grid>
+            </Grid>
+            <Grid IsVisible="{Binding IsViewTimes}" Margin="0,385,0,0" HorizontalOptions="Fill" VerticalOptions="Fill" >
+                <ScrollView>
+                    <StackLayout>
+                        <Grid IsVisible="{Binding IsViewMorning}">
+                            <Label Margin="20,10,0,0" FontSize="Body" Text="Утро" TextColor="Gray"/>
+                            <Grid  Margin="20,40,20,0" x:Name="Grid_morning" HorizontalOptions="Fill" VerticalOptions="Start">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Frame Padding="0" Grid.Column="0" BorderColor="Gray" BackgroundColor="Transparent" Margin="5" CornerRadius="0">
+                                    <Label Text="11:00" FontSize="22" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+                                <Frame IsEnabled="False" Grid.Column="1" Padding="0"  BorderColor="Gray" BackgroundColor="Transparent" Margin="5" CornerRadius="0">
+                                    <Label Text="12:00" FontSize="22" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+                                <Frame Padding="0" Grid.Column="2" BorderColor="Gray" BackgroundColor="Transparent" Margin="5" CornerRadius="0">
+                                    <Label Text="13:00" FontSize="22" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+                                <Frame Padding="0" Grid.Column="3" BorderColor="Gray" BackgroundColor="Transparent" Margin="5" CornerRadius="0">
+                                    <Label Text="14:00" FontSize="22" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+                            </Grid>
+                        </Grid>
+                        <Grid IsVisible="{Binding IsViewDay}">
+                            <Label Margin="20,10,0,0" FontSize="Body" Text="День" TextColor="Gray"/>
+                            <Grid  Margin="20,40,20,0" x:Name="Grid_Day" HorizontalOptions="Fill" VerticalOptions="Start">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Frame Padding="0" Grid.Column="0" BorderColor="Gray" BackgroundColor="Transparent" Margin="5" CornerRadius="0">
+                                    <Label Text="11:00" FontSize="22" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+                                <Frame IsEnabled="False" Padding="0" Grid.Column="1" BorderColor="Gray" BackgroundColor="Transparent" Margin="5" CornerRadius="0">
+                                    <Label Text="12:00" FontSize="22" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+                                <Frame Padding="0" Grid.Column="2" BorderColor="Gray" BackgroundColor="Transparent" Margin="5" CornerRadius="0">
+                                    <Label Text="13:00" FontSize="22" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+                                <Frame Padding="0" Grid.Column="3" BorderColor="Gray" BackgroundColor="Transparent" Margin="5" CornerRadius="0">
+                                    <Label Text="14:00" FontSize="22" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+                            </Grid>
+                        </Grid>
+                        <Grid IsVisible="{Binding IsViewAfterun}">
+                            <Label Margin="20,10,0,0" FontSize="Body" Text="Вечер" TextColor="Gray"/>
+                            <Grid  Margin="20,40,20,0" x:Name="Grid_Afterun" HorizontalOptions="Fill" VerticalOptions="Start">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Frame Padding="0" Grid.Column="0" BorderColor="Gray" BackgroundColor="Transparent" Margin="5" CornerRadius="0">
+                                    <Label Text="11:00" FontSize="22" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+                                <Frame IsEnabled="False" Padding="0" Grid.Column="1" BorderColor="Gray" BackgroundColor="Transparent" Margin="5" CornerRadius="0">
+                                    <Label Text="12:00" FontSize="22" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+                                <Frame Padding="0" Grid.Column="2" BorderColor="Gray" BackgroundColor="Transparent" Margin="5" CornerRadius="0">
+                                    <Label Text="13:00" FontSize="22" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+                                <Frame Padding="0" Grid.Column="3" BorderColor="Gray" BackgroundColor="Transparent" Margin="5" CornerRadius="0">
+                                    <Label Text="14:00" FontSize="22" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+                            </Grid>
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

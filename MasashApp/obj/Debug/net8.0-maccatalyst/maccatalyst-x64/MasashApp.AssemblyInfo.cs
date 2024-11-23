@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MasashApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+5762b652467191e97d0270e3203656ff395bd3ac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+814461dbb4bb4c2c9f2aeb3d2517dfa31cfaf390")]
 [assembly: System.Reflection.AssemblyProductAttribute("MasashApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MasashApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

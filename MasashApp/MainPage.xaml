@@ -2,19 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             Title=""
              x:Class="MasashApp.MainPage"
-             xmlns:local="clr-namespace:MasashApp">
-    
+             x:Name="ContentPage_Main"
+             xmlns:local="clr-namespace:MasashApp"
+             Shell.NavBarIsVisible="False">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False"/>
+    </Shell.BackButtonBehavior>
     <Grid x:Name="MainGrid" BackgroundColor="Gray">
         <!--Navbar-->
-        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource NavBar_Baground_Light}, Dark={StaticResource NavBar_Baground_Dark}}" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+        <Grid HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
             <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
             <Label Margin="20,10,0,0" Text="FITMASSAGE" TextColor="{StaticResource White}"/>
             <Label Margin="20,30,0,0" FontSize="12" Text="{Binding Address}" TextColor="{StaticResource White}"/>
             
             <Image Source="info_logo.png" Margin="0, 0, 40, 0" HeightRequest="40"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit" />
-            <Image Source="info_logo.png" Margin="0, 0, 10, 0" HeightRequest="25"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit">
+            <Image Source="icon_user.png" Margin="0, 0, 10, 0" HeightRequest="25" WidthRequest="40"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit">
                 <Image.Behaviors>
                     <toolkit:IconTintColorBehavior TintColor="White" />
                 </Image.Behaviors>
@@ -23,84 +26,136 @@
                 </Image.GestureRecognizers>
             </Image>
         </Grid>
-        <Label Margin="20,130,0,0" HorizontalOptions="Start" FontSize="23" FontAttributes="Bold" VerticalOptions="Start" Text="Детали визита" TextColor="White"/>
-        <StackLayout Margin="0,200,0,0" HorizontalOptions="Fill" VerticalOptions="Start">
-            <!--Выбор мастера-->
-            <Grid>
-                <Label Text="Мастер"  VerticalOptions="Start" HorizontalOptions="Start" Margin="20,10,0,0" TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray100}}"/>
-                <Grid BackgroundColor="White" Margin="20,40,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="SelectMaster_Touch"/>
-                    </Grid.GestureRecognizers>
-                    <Border/>
-                    <BoxView BackgroundColor="Black" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill"/>
-                    <Image Source="mramor.jpg" Margin="0, 0, 0, 0" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill" Aspect="AspectFill"/>
-
-
-                    <Image Source="icon_user_vector.svg" Margin="10, 0, 0, 0" HorizontalOptions="Start" WidthRequest="40" Aspect="AspectFit">
-                        <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="White" />
-                        </Image.Behaviors>
-                    </Image>
-                    <Label Text="Выбирите мастера" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}"/>
-                    <Image Source="icon_forward.png" Margin="0, 0, 10, 0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
-                        <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}" />
-                        </Image.Behaviors>
-                    </Image>
+        <Grid Margin="0,60,0,0">
+            <Label Margin="20,70,0,0" HorizontalOptions="Start" FontSize="23" FontAttributes="Bold" VerticalOptions="Start" Text="Детали визита" TextColor="White"/>
+            <StackLayout x:Name="StackLayout_main" Margin="0,140,0,0" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <!--Выбор мастера-->
+                <Grid Padding="0">
+                    <Label Text="Мастер"  VerticalOptions="Start" HorizontalOptions="Start" Margin="20,10,0,0" TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray100}}"/>
+                    <Grid BackgroundColor="White" Margin="20,40,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+                        
+                        <Border StrokeThickness="2" Margin="-2"/>
+                        <BoxView BackgroundColor="Black" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill"/>
+                        <Image Source="mramor.jpg" IsVisible="{Binding IsNullMaster}" Margin="0, 0, 0, 0" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill" Aspect="AspectFill"/>
+                        <Image Source="{Binding SelectedMaster.PathImg}" IsVisible="{Binding IsSelectedMaster}" Margin="0, 0, 0, 0" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill" Aspect="AspectFill"/>
+                        
+                        <Image Source="icon_user.png" IsVisible="{Binding IsNullMaster}" Margin="10, 0, 0, 0" HorizontalOptions="Start" WidthRequest="40" Aspect="AspectFit">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="White" />
+                            </Image.Behaviors>
+                        </Image>
+                        <!--Tap Select Zone-->
+                        <Grid Margin="60,0,60,0" VerticalOptions="Fill" HorizontalOptions="Fill">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectMaster_Touch"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                        <Label Text="Выбирите мастера" IsVisible="{Binding IsNullMaster}" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Gray"/>
+                        <Label Text="{Binding SelectedMaster.Name}" IsVisible="{Binding IsSelectedMaster}" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Black"/>
+                        <Image Source="icon_forward.png" IsVisible="{Binding IsNullMaster}" Margin="0, 0, 10, 0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="Gray" />
+                            </Image.Behaviors>
+                        </Image>
+                        <Image Source="close.png" IsVisible="{Binding IsSelectedMaster}" Margin="0, 0, 10, 0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="Gray" />
+                            </Image.Behaviors>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Clear_selectedMaster"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
                 </Grid>
-            </Grid>
-            <!--Выбор Услуги-->
-            <Grid>
-                <Label Text="Услуга"  VerticalOptions="Start" HorizontalOptions="Start" Margin="20,10,0,0" TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray100}}"/>
-                <Grid BackgroundColor="White" Margin="20,40,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="SelectService_Touch"/>
-                    </Grid.GestureRecognizers>
-                    <Border/>
-                    <BoxView BackgroundColor="Black" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill"/>
-                    <Image Source="mramor.jpg" Margin="0, 0, 0, 0" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill" Aspect="AspectFill"/>
-                    <Image Source="icon_accept.png" Margin="10, 0, 0, 0" HorizontalOptions="Start" WidthRequest="40" Aspect="AspectFit">
-                        <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="White" />
-                        </Image.Behaviors>
-                    </Image>
-                    <Label Text="Выбирите услугу" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}"/>
-                    <Image Source="icon_forward.png" Margin="0, 0, 10, 0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
-                        <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}" />
-                        </Image.Behaviors>
-                    </Image>
+                <!--Выбор Услуги-->
+                <Grid>
+                    <Label Text="Услуга"  VerticalOptions="Start" HorizontalOptions="Start" Margin="20,10,0,0" TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray100}}"/>
+                    <Grid BackgroundColor="White" Margin="20,40,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SelectService_Touch"/>
+                        </Grid.GestureRecognizers>
+                        <Border StrokeThickness="2" Margin="-2"/>
+                        <BoxView BackgroundColor="Black" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill"/>
+                        <Image Source="mramor.jpg" Margin="0, 0, 0, 0" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill" Aspect="AspectFill"/>
+                        <Image Source="{Binding PathImgService}" IsVisible="{Binding IsViewImageServise}" Margin="0, 0, 0, 0" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill" Aspect="AspectFill"/>
+                        <Image IsVisible="{Binding IsHideDefaultImageServise}" Source="icon_accept.png" Margin="10, 0, 0, 0" HorizontalOptions="Start" WidthRequest="40" Aspect="AspectFit">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="White" />
+                            </Image.Behaviors>
+                        </Image>
+                        <Label IsVisible="{Binding IsNullServise}" Text="Выбирите услугу" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Gray"/>
+                        <Label IsVisible="{Binding IsSelectedServise}" Text="{Binding TotalPriceServises, StringFormat='{0} zł'}" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Black"/>
+                        <Label IsVisible="{Binding IsSelectedServise}" Text="{Binding TotalMinsServises}" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,80,0" TextColor="Gray"/>
+                        <Image Source="icon_forward.png" Margin="0, 0, 10, 0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="Gray" />
+                            </Image.Behaviors>
+                        </Image>
+                    </Grid>
+                    <Grid x:Name="Grid_SelectedCategorysItems" HeightRequest="{Binding HeightRequestSelectedCategorysItems}" Margin="20,101,20,0" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <ListView x:Name="ListView_SelectedCategorysItems" ItemTapped="Remove_Servise" RowHeight="40" HorizontalOptions="Fill" VerticalOptions="Fill">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid BackgroundColor="White" HorizontalOptions="Fill" VerticalOptions="Fill">
+                                            <Border Margin="-1"/>
+                                            <Label HorizontalOptions="Fill" Margin="10,0,80,0" Text="{Binding Name}" TextColor="Black" VerticalOptions="Center"/>
+                                            <Label Text="{Binding Price, StringFormat='{0} zł'}" TextColor="Gray" Margin="0,0,40,0" VerticalOptions="Center" HorizontalOptions="End"/>
+                                            <Image x:Name="RemoveService" Source="close.png" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="20" WidthRequest="20" Margin="0,0,10,0">
+                                                <Image.Behaviors>
+                                                    <toolkit:IconTintColorBehavior TintColor="Gray" />
+                                                </Image.Behaviors>
+                                            </Image>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                    
                 </Grid>
-            </Grid>
-            <!--Выбор Даты и Времени-->
-            <Grid>
-                <Label Text="Дата и время"  VerticalOptions="Start" HorizontalOptions="Start" Margin="20,10,0,0" TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray100}}"/>
-                <Grid BackgroundColor="White" Margin="20,40,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="SelectDateTime_Touch"/>
-                    </Grid.GestureRecognizers>
-                    <Border/>
-                    <BoxView BackgroundColor="Black" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill"/>
-                    <Image Source="mramor.jpg" Margin="0, 0, 0, 0" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill" Aspect="AspectFill"/>
-                    <Image Source="icon_calendar.png" Margin="10, 0, 0, 0" HorizontalOptions="Start" WidthRequest="40" Aspect="AspectFit">
-                        <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="White" />
-                        </Image.Behaviors>
-                    </Image>
-                    <Label Text="Выбирите дату и время" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}"/>
-                    <Image Source="icon_forward.png" Margin="0, 0, 10, 0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
-                        <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}" />
-                        </Image.Behaviors>
-                    </Image>
+                <!--Выбор Даты и Времени-->
+                <Grid Margin="0,0,0,0">
+                    <Label Text="Дата и время"  VerticalOptions="Start" HorizontalOptions="Start" Margin="20,10,0,0" TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray100}}"/>
+                    <Grid BackgroundColor="White" Margin="20,40,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+                        
+                        <Border StrokeThickness="2" Margin="-2"/>
+                        <BoxView BackgroundColor="Black" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill"/>
+                        <Image Source="mramor.jpg" Margin="0, 0, 0, 0" WidthRequest="60" HorizontalOptions="Start" VerticalOptions="Fill" Aspect="AspectFill"/>
+                        <Image Source="icon_calendar.png" Margin="10, 0, 0, 0" HorizontalOptions="Start" WidthRequest="40" Aspect="AspectFit">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="White" />
+                            </Image.Behaviors>
+                        </Image>
+                        <Grid Margin="60,0,60,0" VerticalOptions="Fill" HorizontalOptions="Fill">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectDateTime_Touch"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                        <Label Text="Выбирите дату и время" IsVisible="{Binding IsHideTime}" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Gray"/>
+                        <Label Text="{Binding SelectedTimeString}" IsVisible="{Binding IsVisibleTime}" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Black"/>
+                        <Image Source="icon_forward.png"  IsVisible="{Binding IsHideTime}" Margin="0, 0, 10, 0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="Gray" />
+                            </Image.Behaviors>
+                        </Image>
+                        <Image Source="close.png" IsVisible="{Binding IsVisibleTime}" Margin="0, 0, 10, 0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="Gray" />
+                            </Image.Behaviors>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Clear_selectedTime"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
                 </Grid>
-            </Grid>
-            <Grid Margin="20,30,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}">
-                <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
-                <Label Text="Оформить визит" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
-            </Grid>
-        </StackLayout>
+                <Grid Margin="20,30,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}">
+                    <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                    <Label Text="Оформить визит" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
+                </Grid>
+            </StackLayout>
+        </Grid>
+        
     </Grid>
     
 

@@ -21,10 +21,10 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>MasashApp</ApplicationTitle>
+		<ApplicationTitle>Malina Nail</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.masashapp</ApplicationId>
+		<ApplicationId>com.bogdansosnovskiy.malinanail</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -39,18 +39,16 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(TargetFramework)'=='net8.0-ios'">
-	  <CodesignKey>Apple Development: Created via API (4W988WG55L)</CodesignKey>
+	  <CodesignKey>Apple Development: Created via API (DJJXDY3R95)</CodesignKey>
 	  <CodesignProvision>VS: WildCard Development</CodesignProvision>
 	  <ProvisioningType>automatic</ProvisioningType>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
-
+      	<MauiIcon Include="Resources\AppIcon\appicon.svg" />
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
-
+    	<MauiSplashScreen Include="Resources\Splash\splash.png" BaseSize="128,128" />
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
@@ -63,6 +61,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\AppIcon\appicon.svg" />
+	  <None Remove="Resources\Images\close.png" />
 	  <None Remove="Resources\Images\icon_accept.png" />
 	  <None Remove="Resources\Images\icon_back.png" />
 	  <None Remove="Resources\Images\icon_bell.png" />
@@ -74,8 +74,12 @@
 	  <None Remove="Resources\Images\icon_star.png" />
 	  <None Remove="Resources\Images\icon_time.png" />
 	  <None Remove="Resources\Images\icon_user.png" />
-	  <None Remove="Resources\Images\icon_user_vector.svg" />
 	  <None Remove="Resources\Images\info_logo.png" />
+	  <None Remove="Resources\Images\manic_1.jpg" />
+	  <None Remove="Resources\Images\manic_2.jpg" />
+	  <None Remove="Resources\Images\manic_3.jpg" />
+	  <None Remove="Resources\Images\manic_4.jpg" />
+	  <None Remove="Resources\Images\master.jpg" />
 	  <None Remove="Resources\Images\mramor.jpg" />
 	</ItemGroup>
 
@@ -111,7 +115,13 @@
 	  <MauiXaml Update="Page_PersonalData.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Page_selectDateTime.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Page_selectMaster.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Page_selectService.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Page_settings.xaml">

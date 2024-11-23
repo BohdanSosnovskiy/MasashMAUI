@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MasashApp.Page_selectService"
+             Title="Page_selectService">
+    <Grid>
+        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource NavBar_Baground_Light}, Dark={StaticResource NavBar_Baground_Dark}}" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+            <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+            <Label Margin="40,0,0,0" VerticalOptions="Center" Text="Выбирите мастера" TextColor="{StaticResource White}"/>
+
+            <Image Source="icon_back.png" Margin="10, 0, 0, 0" HeightRequest="25"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="White" />
+                </Image.Behaviors>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Back_Touch"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+        <Grid Margin="0,60,0,0" BackgroundColor="#f5f5f7">
+            <ListView BackgroundColor="Transparent" Margin="0,0,0,250" x:Name="ListView_Categorys" RowHeight="150" HorizontalOptions="Start" WidthRequest="140" VerticalOptions="Fill">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Image Source="{Binding PathImg}" HeightRequest="100" WidthRequest="100" Margin="20, 20, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill"/>
+                                <Label Margin="0,0,0,10" HorizontalOptions="Center" VerticalOptions="End" Text="{Binding Name}"/>
+                                <Grid IsVisible="{Binding IsViewSelected}" BackgroundColor="Black" Margin="20" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" VerticalOptions="Start">
+                                    <Label Text="{Binding CountSelected}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Grid>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView BackgroundColor="Transparent" ItemTapped="ListView_CategorysItems_ItemTapped" Margin="150,0,0,250" x:Name="ListView_CategorysItems" RowHeight="100" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="White">
+                                <Image Source="{Binding PathImg}" HeightRequest="50" WidthRequest="50" Margin="10, 10, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill"/>
+                                <Label x:Name="title_item" Margin="70,10,0,0" WidthRequest="110" HorizontalOptions="Start" VerticalOptions="Start" LineBreakMode="CharacterWrap"  TextColor="Black" FontSize="14" Text="{Binding Name}"/>
+                                <Label Margin="70,60,0,0" TextColor="Gray" HorizontalOptions="Start" VerticalOptions="Start" Text="{Binding Price, StringFormat='{0} zł'}"/>
+                                <Label Margin="0,60,50,0" TextColor="Gray" HorizontalOptions="End" VerticalOptions="Start" Text="{Binding Time, StringFormat='{0} мин'}"/>
+                                <Grid BackgroundColor="#C5C5C5" Margin="15" VerticalOptions="Start" HorizontalOptions="End" WidthRequest="20" HeightRequest="20">
+                                    <BoxView BackgroundColor="Black" IsVisible="{Binding IsSelected}"/>
+                                    <Image Source="icon_accept.png" IsVisible="{Binding IsSelected}" HeightRequest="20" WidthRequest="20" Margin="0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill">
+                                        <Image.Behaviors>
+                                            <toolkit:IconTintColorBehavior TintColor="White" />
+                                        </Image.Behaviors>
+                                    </Image>
+                                </Grid>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid x:Name="Grid_SelServises" BackgroundColor="White" VerticalOptions="End" HorizontalOptions="Fill" HeightRequest="240">
+                <Label x:Name="Text_SelServises" Text="Выбраные услуги: 1 / 200 грн" TextColor="Black" FontSize="16" FontAttributes="Bold" Margin="15"/>
+
+                <CarouselView x:Name="Carusel_Services" Margin="15,50,15,0" PeekAreaInsets="40"  HeightRequest="100" BackgroundColor="Transparent" Loop="False" HorizontalOptions="Fill" VerticalOptions="Start">
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" SnapPointsType="Mandatory" SnapPointsAlignment="Start"/>
+                    </CarouselView.ItemsLayout>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+
+                            <Frame Padding="0" BackgroundColor="White" CornerRadius="0" BorderColor="Gray">
+                                <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+                                    <Image Source="{Binding PathImg}" HeightRequest="50" WidthRequest="50" Margin="10, 10, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill"/>
+                                    <Label x:Name="title_item" Margin="70,10,0,0" WidthRequest="130" HorizontalOptions="Start" VerticalOptions="Fill" LineBreakMode="CharacterWrap"  TextColor="Black" FontSize="14" Text="{Binding Name}"/>
+                                    <Label Text="{Binding Price, StringFormat='{0} zł'}" TextColor="Gray" Margin="70,60,0,0"/>
+                                    <Label Text="{Binding Time, StringFormat='{0} мин'}" WidthRequest="50" TextColor="Gray" Margin="0,60,50,0" HorizontalOptions="End" />
+                                    <Image Source="close.png" HeightRequest="20" WidthRequest="20" Margin="0, 10, 10, 0" HorizontalOptions="End" VerticalOptions="Start" Aspect="AspectFill">
+                                        <Image.Behaviors>
+                                            <toolkit:IconTintColorBehavior TintColor="Gray" />
+                                        </Image.Behaviors>
+                                    </Image>
+                                </Grid>                            
+                            </Frame>
+
+
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <Grid BackgroundColor="Black" Margin="15" HeightRequest="60" VerticalOptions="End" HorizontalOptions="Fill">
+                    <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                    <Label Text="Далее" VerticalOptions="Center" HorizontalOptions="Center" FontSize="17" FontAttributes="Bold"/>
+                    <Image Source="icon_forward.png" IsVisible="{Binding IsNullMaster}" Margin="80, 3, 0, 0" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="White" />
+                        </Image.Behaviors>
+                    </Image>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SelectServises"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

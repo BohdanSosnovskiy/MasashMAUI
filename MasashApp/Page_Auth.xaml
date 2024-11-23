@@ -3,14 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:customControls="clr-namespace:MasashApp.CustomControls"
+             HideSoftInputOnTapped="True"
              x:Class="MasashApp.Page_Auth"
              Title="">
     <Grid BackgroundColor="Gray">
-        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource NavBar_Baground_Light}, Dark={StaticResource NavBar_Baground_Dark}}" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+        <Grid HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+            
             <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
             <Label Margin="40,0,0,0" VerticalOptions="Center" Text="Вход в личный кабинет" TextColor="{StaticResource White}"/>
 
-            <Image Source="icon_back.png" Margin="10, 0, 0, 0" HeightRequest="25"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit">
+            <Image Source="icon_back.png" Margin="10, 0, 0, 0" HeightRequest="25" WidthRequest="25"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit">
                 <Image.Behaviors>
                     <toolkit:IconTintColorBehavior TintColor="White" />
                 </Image.Behaviors>
@@ -18,8 +20,9 @@
                     <TapGestureRecognizer Tapped="Back_Touch"/>
                 </Image.GestureRecognizers>
             </Image>
+            
         </Grid>
-        <Grid>
+        <Grid BackgroundColor="Gray" VerticalOptions="Fill" HorizontalOptions="Fill" Margin="0,60,0,0">
             <Label Margin="20,130,0,0" HorizontalOptions="Start" FontSize="23" FontAttributes="Bold" VerticalOptions="Start" Text="Детали визита" TextColor="White"/>
             <StackLayout Margin="0,200,0,0" HorizontalOptions="Fill" VerticalOptions="Start">
                 <Grid Margin="20,0,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="40">
@@ -29,7 +32,7 @@
                             <toolkit:IconTintColorBehavior TintColor="White" />
                         </Image.Behaviors>
                     </Image>
-                    <Label Text="Доступ к истории посещений" VerticalOptions="Center" HorizontalOptions="Start" Margin="60,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}"/>
+                    <Label Text="Доступ к истории посещений" VerticalOptions="Center" HorizontalOptions="Start" Margin="60,0,0,0" TextColor="White"/>
                 </Grid>
                 <Grid Margin="20,15,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="40">
                     <BoxView BackgroundColor="Black" WidthRequest="40" HorizontalOptions="Start" VerticalOptions="Fill"/>
@@ -38,7 +41,7 @@
                             <toolkit:IconTintColorBehavior TintColor="White" />
                         </Image.Behaviors>
                     </Image>
-                    <Label Text="Возможность оценить визит" VerticalOptions="Center" HorizontalOptions="Start" Margin="60,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}"/>
+                    <Label Text="Возможность оценить визит" VerticalOptions="Center" HorizontalOptions="Start" Margin="60,0,0,0" TextColor="White"/>
                 </Grid>
                 <Grid Margin="20,15,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="40">
                     <BoxView BackgroundColor="Black" WidthRequest="40" HorizontalOptions="Start" VerticalOptions="Fill"/>
@@ -47,13 +50,13 @@
                             <toolkit:IconTintColorBehavior TintColor="White" />
                         </Image.Behaviors>
                     </Image>
-                    <Label Text="Бонусы и скидки" VerticalOptions="Center" HorizontalOptions="Start" Margin="60,0,0,0" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray100}}"/>
+                    <Label Text="Бонусы и скидки" VerticalOptions="Center" HorizontalOptions="Start" Margin="60,0,0,0" TextColor="White"/>
                 </Grid>
-                <Grid Margin="20,100,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray100}}">
-                    <Label Margin="20,0,0,0" Text="Номер телефона*" VerticalOptions="Center" HorizontalOptions="Start" TextColor="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray950}}"/>
-                    <!--<customControls:OutlineEntry x:Name="NumberPhone" EntryType="Text" FontSize_custom="15" Placeholder_custom="Номер телефона*"/>-->
-                    <Entry Placeholder="Номер телефона*"/>
-                    <customControls:CustomEntry Text="This is custom entry" BorderColor="Green" BorderThickness="2" CornerRadius="10" Padding="10" HeightRequest="60"></customControls:CustomEntry>
+                <Grid Margin="20,30,20,0">
+                    <Frame Padding="0" CornerRadius="0">
+                        <Entry MaxLength="15" Keyboard="Numeric" Margin="0" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="15" TextColor="Black" Placeholder="Телефон"/>
+                    </Frame>
+
                 </Grid>
                 <Grid Margin="20,30,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}">
                     <Grid.GestureRecognizers>

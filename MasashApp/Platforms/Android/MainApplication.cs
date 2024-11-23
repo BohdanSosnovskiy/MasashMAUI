@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Runtime;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android;
 
 namespace MasashApp
 {
@@ -11,6 +12,24 @@ namespace MasashApp
         {
         }
 
-        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+        protected override MauiApp CreateMauiApp()
+        {
+
+            Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("MyCustomization", (hander, view) =>
+            {
+#if ANDROID
+                hander.PlatformView.BackgroundTintList = Android.Content.Res.ColorStateList.ValueOf(Colors.Transparent.ToAndroid());
+#endif
+            });
+
+            Microsoft.Maui.Handlers.DatePickerHandler.Mapper.AppendToMapping("MyCustomization", (hander, view) =>
+            {
+#if ANDROID
+                hander.PlatformView.BackgroundTintList = Android.Content.Res.ColorStateList.ValueOf(Colors.Transparent.ToAndroid());
+#endif
+            });
+
+            return MauiProgram.CreateMauiApp();
+        }
     }
 }

@@ -18,28 +18,34 @@
                     <TapGestureRecognizer Tapped="Back_Touch"/>
                 </Image.GestureRecognizers>
             </Image>
-            <Grid HorizontalOptions="Fill" Margin="20,130,20,0">
-                <HorizontalStackLayout  HorizontalOptions="Center" >
-                    <!--<customControls:OutlineEntry WidthRequest="40" Margin="10,0,10,0" Placeholder_custom="0"/>
-                    <customControls:OutlineEntry WidthRequest="40" Margin="10,0,10,0" Placeholder_custom="0"/>
-                    <customControls:OutlineEntry WidthRequest="40" Margin="10,0,10,0" Placeholder_custom="0"/>
-                    <customControls:OutlineEntry WidthRequest="40" Margin="10,0,10,0" Placeholder_custom="0"/>-->
-                    <customControls:CustomEntry Margin="10,0,10,0" Placeholder="0" WidthRequest="40" HeightRequest="40"/>
-                    <customControls:CustomEntry Margin="10,0,10,0" Placeholder="0" WidthRequest="40" HeightRequest="40"/>
-                    <customControls:CustomEntry Margin="10,0,10,0" Placeholder="0" WidthRequest="40" HeightRequest="40"/>
-                    <customControls:CustomEntry Margin="10,0,10,0" Placeholder="0" WidthRequest="40" HeightRequest="40"/>
+        </Grid>
+        <Grid Margin="0,60,0,0">
+            <Grid HorizontalOptions="Fill" VerticalOptions="Start" Margin="20,20,20,0">
+                <HorizontalStackLayout  HorizontalOptions="Center" VerticalOptions="Start" >
+                    <Frame Padding="0" WidthRequest="50" HeightRequest="50">
+                        <Entry TextColor="Black" Placeholder="0" FontSize="25" HorizontalTextAlignment="Center" MaxLength="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+                    <Frame Padding="0" Margin="10,0,0,0" WidthRequest="50" HeightRequest="50">
+                        <Entry TextColor="Black" Placeholder="0" FontSize="25" HorizontalTextAlignment="Center" MaxLength="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+                    <Frame Padding="0" Margin="10,0,0,0" WidthRequest="50" HeightRequest="50">
+                        <Entry TextColor="Black" Placeholder="0" FontSize="25" HorizontalTextAlignment="Center" MaxLength="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+                    <Frame Padding="0" Margin="10,0,0,0" WidthRequest="50" HeightRequest="50">
+                        <Entry TextColor="Black" Placeholder="0" FontSize="25" HorizontalTextAlignment="Center" MaxLength="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
                 </HorizontalStackLayout>
-                <Label Margin="50,50,20,0" VerticalOptions="Start" HorizontalOptions="Start" Text="Введите код их смс" TextColor="{StaticResource Black}"/>
+                <Label Margin="50,60,20,0" TextColor="White" VerticalOptions="Start" HorizontalOptions="Start" Text="Введите код их смс"/>
             </Grid>
-            
-            
+            <Grid Margin="20,330,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="SendCode_Tap"/>
+                </Grid.GestureRecognizers>
+
+                <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                <Label Text="Отправить" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
+            </Grid>
         </Grid>
-        <Grid Margin="20,330,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}">
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Tapped="SendCode_Tap"/>
-            </Grid.GestureRecognizers>
-            <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
-            <Label Text="Отправить" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
-        </Grid>
+        
     </Grid>
 </ContentPage>

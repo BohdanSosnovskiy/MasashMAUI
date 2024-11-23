@@ -5,8 +5,8 @@
     <ActiveDebugFramework>net8.0-ios</ActiveDebugFramework>
     <ActiveDebugProfile>Локальное устройство</ActiveDebugProfile>
     <SelectedPlatformGroup>LocalDevice</SelectedPlatformGroup>
-    <DeveloperId>4W988WG55L</DeveloperId>
-    <DevelopmentTeamId>4W988WG55L</DevelopmentTeamId>
+    <DeveloperId>DJJXDY3R95</DeveloperId>
+    <DevelopmentTeamId>DJJXDY3R95</DevelopmentTeamId>
     <DefaultDevice>iPhone 16 iOS 18.1</DefaultDevice>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetPlatformIdentifier)'=='iOS'">
@@ -38,7 +38,13 @@
     <MauiXaml Update="Page_PersonalData.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Page_selectDateTime.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Page_selectMaster.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Page_selectService.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Page_settings.xaml">

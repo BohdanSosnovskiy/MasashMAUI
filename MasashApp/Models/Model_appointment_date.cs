@@ -17,6 +17,8 @@ namespace MasashApp.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public string _id { get; set; }
+
         private DateTime date;
 
         public DateTime Date

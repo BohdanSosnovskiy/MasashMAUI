@@ -15,8 +15,8 @@ public partial class Page_selectService : ContentPage
     {
         Loaded -= Page_selectService_Loaded;
 
-        StaticData.Catergory_Sevice = new System.Collections.ObjectModel.ObservableCollection<Model_service_catogory>();
-        StaticData.SelectedCatergory_Item_Sevice = new System.Collections.ObjectModel.ObservableCollection<Model_service_item>();
+        StaticData.Catergory_Sevice = new ObservableCollection<Model_service_catogory>();
+        StaticData.SelectedCatergory_Item_Sevice = new ObservableCollection<Model_service_item>();
 
         Model_service_catogory Category = new Model_service_catogory();
         Category.Name = "Маникюр";

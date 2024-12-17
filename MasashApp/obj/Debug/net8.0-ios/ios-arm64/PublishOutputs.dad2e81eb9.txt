@@ -187,6 +187,9 @@ M:\Projects\MasashMAUI\MasashApp\bin\Debug\net8.0-ios\ios-arm64\publish\..\devic
 M:\Projects\MasashMAUI\MasashApp\bin\Debug\net8.0-ios\ios-arm64\publish\..\device-builds\iphone10.6-16.7.10\MasashApp.app\\Microsoft.Maui.dll
 M:\Projects\MasashMAUI\MasashApp\bin\Debug\net8.0-ios\ios-arm64\publish\..\device-builds\iphone10.6-16.7.10\MasashApp.app\\Microsoft.Maui.Essentials.dll
 M:\Projects\MasashMAUI\MasashApp\bin\Debug\net8.0-ios\ios-arm64\publish\..\device-builds\iphone10.6-16.7.10\MasashApp.app\\Microsoft.Maui.Graphics.dll
+M:\Projects\MasashMAUI\MasashApp\bin\Debug\net8.0-ios\ios-arm64\publish\..\device-builds\iphone10.6-16.7.10\MasashApp.app\\System.Net.Http.Extensions.dll
+M:\Projects\MasashMAUI\MasashApp\bin\Debug\net8.0-ios\ios-arm64\publish\..\device-builds\iphone10.6-16.7.10\MasashApp.app\\System.Net.Http.Primitives.dll
+M:\Projects\MasashMAUI\MasashApp\bin\Debug\net8.0-ios\ios-arm64\publish\..\device-builds\iphone10.6-16.7.10\MasashApp.app\\Newtonsoft.Json.dll
 M:\Projects\MasashMAUI\MasashApp\bin\Debug\net8.0-ios\ios-arm64\publish\..\device-builds\iphone10.6-16.7.10\MasashApp.app\\ar\Microsoft.Maui.Controls.resources.dll
 M:\Projects\MasashMAUI\MasashApp\bin\Debug\net8.0-ios\ios-arm64\publish\..\device-builds\iphone10.6-16.7.10\MasashApp.app\\ca\Microsoft.Maui.Controls.resources.dll
 M:\Projects\MasashMAUI\MasashApp\bin\Debug\net8.0-ios\ios-arm64\publish\..\device-builds\iphone10.6-16.7.10\MasashApp.app\\cs\Microsoft.Maui.Controls.resources.dll

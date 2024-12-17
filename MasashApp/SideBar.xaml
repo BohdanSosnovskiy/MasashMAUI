@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MasashApp.SideBar"
+             BackgroundColor="Transparent"
+             Title="SideBar">
+    <Grid>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            <SwipeGestureRecognizer Direction="Left" Swiped="SwipeLeft"/>
+        </Grid.GestureRecognizers>
+        <Grid VerticalOptions="Fill" HorizontalOptions="Start" WidthRequest="300" BackgroundColor="#1e1e1e">
+            <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label Text="Панель управления" TextColor="White" FontSize="20" Margin="5" HorizontalOptions="Center" VerticalOptions="Start"/>
+                <Frame Padding="0" BackgroundColor="Transparent" BorderColor="White" CornerRadius="0" Margin="10,10,10,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+                    <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Selcet_MagerMaster"/>
+                        </Grid.GestureRecognizers>
+                        <Image Source="icon_user.png" Margin="10, 0, 0, 0" HeightRequest="30" WidthRequest="30"  HorizontalOptions="Start" VerticalOptions="Fill" Aspect="AspectFit">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="White" />
+                            </Image.Behaviors>
+                        </Image>
+                        <Label Text="Управление мастерами" Margin="50,0,0,0" TextColor="White" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+                <Frame Padding="0" BackgroundColor="Transparent" BorderColor="White" CornerRadius="0" Margin="10,10,10,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+                    <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Selcet_AddService"/>
+                        </Grid.GestureRecognizers>
+                        <Image Source="icon_accept.png" Margin="10, 0, 0, 0" HeightRequest="30" WidthRequest="30"  HorizontalOptions="Start" VerticalOptions="Fill" Aspect="AspectFit">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="White" />
+                            </Image.Behaviors>
+                        </Image>
+                        <Label Text="Управление услугами" Margin="50,0,0,0" TextColor="White" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+                <Frame Padding="0" BackgroundColor="Transparent" BorderColor="White" CornerRadius="0" Margin="10,10,10,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+                    <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Image Source="icon_calendar.png" Margin="10, 0, 0, 0" HeightRequest="30" WidthRequest="30"  HorizontalOptions="Start" VerticalOptions="Fill" Aspect="AspectFit">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="White" />
+                            </Image.Behaviors>
+                        </Image>
+                        <Label Text="Составить расписание" Margin="50,0,0,0" TextColor="White" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

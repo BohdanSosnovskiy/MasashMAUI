@@ -18,6 +18,7 @@ namespace MasashApp.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public string _id { get; set; }
         public Model_schedule() 
         {
             Times = new List<Model_TimesItem>();

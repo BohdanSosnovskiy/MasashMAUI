@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MasashApp.Page_add_servicess"
+             Title="Page_add_servicess">
+    <Grid>
+        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource NavBar_Baground_Light}, Dark={StaticResource NavBar_Baground_Dark}}" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+            <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+            <Label Margin="40,0,0,0" VerticalOptions="Center" Text="Управление услугами" TextColor="{StaticResource White}"/>
+
+            <Image Source="icon_back.png" Margin="10, 0, 0, 0" HeightRequest="25"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="White" />
+                </Image.Behaviors>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Back_Touch"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+        <Grid Margin="0,60,0,0" BackgroundColor="#f5f5f7">
+
+            <Grid BackgroundColor="Black" Margin="5,30,0,0" HeightRequest="40" WidthRequest="130" VerticalOptions="Start" HorizontalOptions="Start">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Add_category"/>
+                </Grid.GestureRecognizers>
+                
+                <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                <Image Source="close.png" Rotation="45" IsVisible="{Binding IsNullMaster}" Margin="0, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" Aspect="AspectFit">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="White" />
+                    </Image.Behaviors>
+                </Image>
+            </Grid>
+            <Grid BackgroundColor="Black" Margin="5,75,0,0" HeightRequest="40" WidthRequest="130" VerticalOptions="Start" HorizontalOptions="Start">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Edit_category"/>
+                </Grid.GestureRecognizers>
+                <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                <Image Source="edit.png" IsVisible="{Binding IsNullMaster}" Margin="0, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" Aspect="AspectFit">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="White" />
+                    </Image.Behaviors>
+                </Image>
+            </Grid>
+            <Grid BackgroundColor="Black" Margin="5,120,0,0" HeightRequest="40" WidthRequest="130" VerticalOptions="Start" HorizontalOptions="Start">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Remove_category"/>
+                </Grid.GestureRecognizers>
+                <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                <Image Source="trash.png" IsVisible="{Binding IsNullMaster}" Margin="0, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" Aspect="AspectFit">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="White" />
+                    </Image.Behaviors>
+                </Image>
+            </Grid>
+
+
+            <Grid BackgroundColor="Black" Margin="150,30,5,0" HeightRequest="40" VerticalOptions="Start" HorizontalOptions="Fill">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Add_service"/>
+                </Grid.GestureRecognizers>
+                <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                <Image Source="close.png" Rotation="45" IsVisible="{Binding IsNullMaster}" Margin="0, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" Aspect="AspectFit">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="White" />
+                    </Image.Behaviors>
+                </Image>
+            </Grid>
+            <Grid BackgroundColor="Black" Margin="150,75,5,0" HeightRequest="40" VerticalOptions="Start" HorizontalOptions="Fill">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Edit_service"/>
+                </Grid.GestureRecognizers>
+                <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                <Image Source="edit.png" IsVisible="{Binding IsNullMaster}" Margin="0, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" Aspect="AspectFit">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="White" />
+                    </Image.Behaviors>
+                </Image>
+            </Grid>
+            <Grid BackgroundColor="Black" Margin="150,120,5,0" HeightRequest="40" VerticalOptions="Start" HorizontalOptions="Fill">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Remove_service"/>
+                </Grid.GestureRecognizers>
+                <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                <Image Source="trash.png" IsVisible="{Binding IsNullMaster}" Margin="0, 0, 0, 0" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40" Aspect="AspectFit">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="White" />
+                    </Image.Behaviors>
+                </Image>
+            </Grid>
+            <Label Margin="5,5,0,0" WidthRequest="140" HorizontalTextAlignment="Center" HorizontalOptions="Start" VerticalOptions="Start" Text="Категория" TextColor="Black" FontSize="14"/>
+            <Label Margin="150,5,5,0" HorizontalTextAlignment="Center" HorizontalOptions="Fill" VerticalOptions="Start" Text="Услуга" TextColor="Black" FontSize="14"/>
+            <ListView BackgroundColor="Transparent" Margin="0,170,0,0" x:Name="ListView_Categorys" RowHeight="150" HorizontalOptions="Start" WidthRequest="140" VerticalOptions="Fill">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Image Source="{Binding PathImg}" HeightRequest="100" WidthRequest="100" Margin="20, 20, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill"/>
+                                <Label Margin="0,0,0,10" HorizontalOptions="Center" VerticalOptions="End" Text="{Binding Name}"/>
+                                <Grid IsVisible="{Binding IsViewSelected}" BackgroundColor="Black" Margin="20" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" VerticalOptions="Start">
+                                    <Label Text="{Binding CountSelected}" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Grid>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView BackgroundColor="Transparent" ItemTapped="ListView_CategorysItems_ItemTapped" Margin="150,170,0,0" x:Name="ListView_CategorysItems" RowHeight="100" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="White">
+                                <Image Source="{Binding PathImg}" HeightRequest="50" WidthRequest="50" Margin="10, 10, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill"/>
+                                <Label x:Name="title_item" Margin="70,10,0,0" WidthRequest="110" HorizontalOptions="Start" VerticalOptions="Start" LineBreakMode="CharacterWrap"  TextColor="Black" FontSize="14" Text="{Binding Name}"/>
+                                <Label Margin="70,60,0,0" TextColor="Gray" HorizontalOptions="Start" VerticalOptions="Start" Text="{Binding Price, StringFormat='{0} zł'}"/>
+                                <Label Margin="0,60,50,0" TextColor="Gray" HorizontalOptions="End" VerticalOptions="Start" Text="{Binding Time, StringFormat='{0} мин'}"/>
+                                <Grid BackgroundColor="#C5C5C5" Margin="15" VerticalOptions="Start" HorizontalOptions="End" WidthRequest="20" HeightRequest="20">
+                                    <BoxView BackgroundColor="Black" IsVisible="{Binding IsSelected}"/>
+                                    <Image Source="icon_accept.png" IsVisible="{Binding IsSelected}" HeightRequest="20" WidthRequest="20" Margin="0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill">
+                                        <Image.Behaviors>
+                                            <toolkit:IconTintColorBehavior TintColor="White" />
+                                        </Image.Behaviors>
+                                    </Image>
+                                </Grid>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</ContentPage>

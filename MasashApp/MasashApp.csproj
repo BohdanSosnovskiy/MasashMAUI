@@ -62,7 +62,11 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\AppIcon\appicon.svg" />
+	  <None Remove="Resources\Images\call.png" />
 	  <None Remove="Resources\Images\close.png" />
+	  <None Remove="Resources\Images\download.png" />
+	  <None Remove="Resources\Images\edit.png" />
+	  <None Remove="Resources\Images\google.png" />
 	  <None Remove="Resources\Images\icon_accept.png" />
 	  <None Remove="Resources\Images\icon_back.png" />
 	  <None Remove="Resources\Images\icon_bell.png" />
@@ -70,17 +74,25 @@
 	  <None Remove="Resources\Images\icon_discond.png" />
 	  <None Remove="Resources\Images\icon_forward.png" />
 	  <None Remove="Resources\Images\icon_mail.png" />
+	  <None Remove="Resources\Images\icon_new.png" />
 	  <None Remove="Resources\Images\icon_settings.png" />
 	  <None Remove="Resources\Images\icon_star.png" />
 	  <None Remove="Resources\Images\icon_time.png" />
 	  <None Remove="Resources\Images\icon_user.png" />
+	  <None Remove="Resources\Images\idea.png" />
 	  <None Remove="Resources\Images\info_logo.png" />
+	  <None Remove="Resources\Images\inst.png" />
 	  <None Remove="Resources\Images\manic_1.jpg" />
 	  <None Remove="Resources\Images\manic_2.jpg" />
 	  <None Remove="Resources\Images\manic_3.jpg" />
 	  <None Remove="Resources\Images\manic_4.jpg" />
+	  <None Remove="Resources\Images\map.png" />
 	  <None Remove="Resources\Images\master.jpg" />
 	  <None Remove="Resources\Images\mramor.jpg" />
+	  <None Remove="Resources\Images\trash.png" />
+	  <None Remove="Resources\Images\warning.png" />
+	  <None Remove="Resources\Images\warning_2.png" />
+	  <None Remove="Resources\Images\youtube.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -88,16 +100,27 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="CustomControls\OutlineEntry.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ModalMessage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="PageCodePhone.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="PageInfoAccaunt.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Page_add_Master.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Page_add_servicess.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Page_Auth.xaml">
@@ -107,6 +130,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Page_historyinfo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Page_ManageMasters.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Page_notifications.xaml">
@@ -125,6 +151,18 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Page_settings.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PopUp_add_category_service.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PopUp_add_service.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PopUp_edit_category_service.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="SideBar.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

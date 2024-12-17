@@ -18,6 +18,8 @@ namespace MasashApp.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public string _id { get; set; }
+
         private string name;
         public string Name
         {
@@ -88,7 +90,9 @@ namespace MasashApp.Models
         }
 
         private ObservableCollection<Model_service_item> items;
-
+        /// <summary>
+        /// Список доступных услуг
+        /// </summary>
         public ObservableCollection<Model_service_item> Items
         {
             get

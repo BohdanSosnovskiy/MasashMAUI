@@ -32,6 +32,33 @@
                                 <Label Margin="90,0,0,0" VerticalOptions="Start" FontAttributes="Bold" FontSize="15" Text="{Binding Name}" TextColor="Black"/>
                                 <Label Margin="90,20,0,0" VerticalOptions="Start" FontSize="12" Text="Мастер" TextColor="Gray"/>
                                 <HorizontalStackLayout Spacing="-25" Margin="75,40,0,0" Padding="0" VerticalOptions="Start" HorizontalOptions="Start">
+                                    <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                                        <Image.Behaviors>
+                                            <toolkit:IconTintColorBehavior TintColor="#c2c2c3" />
+                                        </Image.Behaviors>
+                                    </Image>
+                                    <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                                        <Image.Behaviors>
+                                            <toolkit:IconTintColorBehavior TintColor="#c2c2c3" />
+                                        </Image.Behaviors>
+                                    </Image>
+                                    <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                                        <Image.Behaviors>
+                                            <toolkit:IconTintColorBehavior TintColor="#c2c2c3" />
+                                        </Image.Behaviors>
+                                    </Image>
+                                    <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                                        <Image.Behaviors>
+                                            <toolkit:IconTintColorBehavior TintColor="#c2c2c3" />
+                                        </Image.Behaviors>
+                                    </Image>
+                                    <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                                        <Image.Behaviors>
+                                            <toolkit:IconTintColorBehavior TintColor="#c2c2c3" />
+                                        </Image.Behaviors>
+                                    </Image>
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Spacing="-25" Margin="75,40,0,0" Padding="0" VerticalOptions="Start" HorizontalOptions="Start">
                                     <Image Source="icon_star.png" HeightRequest="50" IsVisible="{Binding Stars[0]}" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
                                         <Image.Behaviors>
                                             <toolkit:IconTintColorBehavior TintColor="#fca103" />

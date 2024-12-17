@@ -53,8 +53,8 @@
                     <Label Text="Бонусы и скидки" VerticalOptions="Center" HorizontalOptions="Start" Margin="60,0,0,0" TextColor="White"/>
                 </Grid>
                 <Grid Margin="20,30,20,0">
-                    <Frame Padding="0" CornerRadius="0">
-                        <Entry MaxLength="15" Keyboard="Numeric" Margin="0" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="15" TextColor="Black" Placeholder="Телефон"/>
+                    <Frame Padding="0" CornerRadius="0" BackgroundColor="White">
+                        <Entry x:Name="Entry_NumberPhone" MaxLength="15" Margin="10,0,0,0" Keyboard="Numeric" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="15" TextColor="Black" BackgroundColor="Transparent" Placeholder="Телефон"/>
                     </Frame>
 
                 </Grid>

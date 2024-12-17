@@ -40,6 +40,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
+[M:/Projects/MasashMAUI/MasashApp/ModalMessage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.ModalMessage.xaml
+build_metadata.AdditionalFiles.TargetPath = ModalMessage.xaml
+build_metadata.AdditionalFiles.RelativePath = ModalMessage.xaml
+
 [M:/Projects/MasashMAUI/MasashApp/PageCodePhone.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.PageCodePhone.xaml
@@ -51,6 +57,18 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.PageInfoAccaunt.xaml
 build_metadata.AdditionalFiles.TargetPath = PageInfoAccaunt.xaml
 build_metadata.AdditionalFiles.RelativePath = PageInfoAccaunt.xaml
+
+[M:/Projects/MasashMAUI/MasashApp/Page_add_Master.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.Page_add_Master.xaml
+build_metadata.AdditionalFiles.TargetPath = Page_add_Master.xaml
+build_metadata.AdditionalFiles.RelativePath = Page_add_Master.xaml
+
+[M:/Projects/MasashMAUI/MasashApp/Page_add_servicess.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.Page_add_servicess.xaml
+build_metadata.AdditionalFiles.TargetPath = Page_add_servicess.xaml
+build_metadata.AdditionalFiles.RelativePath = Page_add_servicess.xaml
 
 [M:/Projects/MasashMAUI/MasashApp/Page_Auth.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -69,6 +87,12 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.Page_historyinfo.xaml
 build_metadata.AdditionalFiles.TargetPath = Page_historyinfo.xaml
 build_metadata.AdditionalFiles.RelativePath = Page_historyinfo.xaml
+
+[M:/Projects/MasashMAUI/MasashApp/Page_ManageMasters.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.Page_ManageMasters.xaml
+build_metadata.AdditionalFiles.TargetPath = Page_ManageMasters.xaml
+build_metadata.AdditionalFiles.RelativePath = Page_ManageMasters.xaml
 
 [M:/Projects/MasashMAUI/MasashApp/Page_notifications.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -106,6 +130,24 @@ build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.Page_settings.xa
 build_metadata.AdditionalFiles.TargetPath = Page_settings.xaml
 build_metadata.AdditionalFiles.RelativePath = Page_settings.xaml
 
+[M:/Projects/MasashMAUI/MasashApp/PopUp_add_category_service.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.PopUp_add_category_service.xaml
+build_metadata.AdditionalFiles.TargetPath = PopUp_add_category_service.xaml
+build_metadata.AdditionalFiles.RelativePath = PopUp_add_category_service.xaml
+
+[M:/Projects/MasashMAUI/MasashApp/PopUp_add_service.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.PopUp_add_service.xaml
+build_metadata.AdditionalFiles.TargetPath = PopUp_add_service.xaml
+build_metadata.AdditionalFiles.RelativePath = PopUp_add_service.xaml
+
+[M:/Projects/MasashMAUI/MasashApp/PopUp_edit_category_service.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.PopUp_edit_category_service.xaml
+build_metadata.AdditionalFiles.TargetPath = PopUp_edit_category_service.xaml
+build_metadata.AdditionalFiles.RelativePath = PopUp_edit_category_service.xaml
+
 [M:/Projects/MasashMAUI/MasashApp/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.Resources.Styles.Colors.xaml
@@ -117,3 +159,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[M:/Projects/MasashMAUI/MasashApp/SideBar.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MasashApp.SideBar.xaml
+build_metadata.AdditionalFiles.TargetPath = SideBar.xaml
+build_metadata.AdditionalFiles.RelativePath = SideBar.xaml

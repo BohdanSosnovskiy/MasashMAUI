@@ -1,1 +1,0 @@
-M:\Projects\MasashMAUI\MasashApp\MasashApp.csproj;x64

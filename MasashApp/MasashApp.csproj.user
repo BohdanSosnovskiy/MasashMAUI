@@ -17,10 +17,19 @@
     <MauiXaml Update="CustomControls\OutlineEntry.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="ModalMessage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="PageCodePhone.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="PageInfoAccaunt.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Page_add_Master.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Page_add_servicess.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Page_Auth.xaml">
@@ -30,6 +39,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Page_historyinfo.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Page_ManageMasters.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Page_notifications.xaml">
@@ -48,6 +60,18 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Page_settings.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="PopUp_add_category_service.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="PopUp_add_service.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="PopUp_edit_category_service.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="SideBar.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

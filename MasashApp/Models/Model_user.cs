@@ -17,6 +17,21 @@ namespace MasashApp.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public Dictionary<string, string> ToPOST()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+
+            result["id"] = StaticData.GUID_User;
+            result["phone"] = Phone;
+            result["date_reg"] = Date_reg.ToString();
+            result["date_birthday"] = Date_birthday.ToString();
+            result["email"] = Email;
+            result["isAdmin"] = isAdmin.ToString();
+            result["isMaster"] = isMaster.ToString();
+
+            return result;
+        }
+
         private string name;
         public string Name
         {
@@ -27,6 +42,34 @@ namespace MasashApp.Models
             set
             {
                 name = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Model_Master master;
+        public Model_Master Master
+        {
+            get
+            {
+                return master;
+            }
+            set
+            {
+                master = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string pathImg;
+        public string PathImg
+        {
+            get
+            {
+                return pathImg;
+            }
+            set
+            {
+                pathImg = value;
                 OnPropertyChanged();
             }
         }
@@ -56,6 +99,36 @@ namespace MasashApp.Models
             set 
             {
                 email = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool isAdmin;
+        public bool IsAdmin
+        {
+            get
+            {
+                return isAdmin;
+            }
+
+            set
+            {
+                isAdmin = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool isMaster;
+        public bool IsMaster
+        {
+            get
+            {
+                return isMaster;
+            }
+
+            set
+            {
+                isMaster = value;
                 OnPropertyChanged();
             }
         }

@@ -1,3 +1,4 @@
+using MasashApp.Models;
 using System.Windows.Input;
 
 namespace MasashApp;
@@ -27,6 +28,7 @@ public partial class Page_Auth : ContentPage
 
     private async void CheckCode_Tap(object sender, TappedEventArgs e)
     {
+        StaticData.NumberPhone = Entry_NumberPhone.Text;
         await Navigation.PushModalAsync(new PageCodePhone(), false);
     }
 }

@@ -1,10 +1,7 @@
-﻿using CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;
+﻿using CommunityToolkit.Maui.Behaviors;
 using MasashApp.Models;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Input;
-using System.Xml.Linq;
 
 namespace MasashApp
 {
@@ -56,6 +53,42 @@ namespace MasashApp
             set
             {
                 isSelectedMaster = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string? pathImg;
+        public string PathImg
+        {
+            get
+            {
+                if (pathImg == null)
+                {
+                    ImgUser.Behaviors.Clear();
+                    ImgUser.Behaviors.Add(new IconTintColorBehavior { TintColor = Colors.White });
+                    return "icon_user.png";
+                }
+
+                ImgUser.Behaviors.Clear();
+                return pathImg;
+            }
+            set
+            {
+                pathImg = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string? titntColorImg;
+        public string TintColorImg
+        {
+            get
+            {
+                return titntColorImg;
+            }
+            set
+            {
+                titntColorImg = value;
                 OnPropertyChanged();
             }
         }
@@ -301,6 +334,8 @@ namespace MasashApp
             }
         }
 
+        public LoadData loadData { get; set; }
+
         public MainPage()
         {
             InitializeComponent();
@@ -317,6 +352,15 @@ namespace MasashApp
             HeightRequestSelectedCategorysItems = 40;
             IsVisibleTime = false;
             IsHideTime = true;
+            try
+            {
+                StaticData.API = new Connection_API();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"{ex.Message}");
+            }
+            loadData = new LoadData();
         }
 
         private double heightRequest_SelectedCategorysItems;
@@ -337,6 +381,15 @@ namespace MasashApp
         private void MainPage_Loaded(object? sender, EventArgs e)
         {
             UpdateListService();
+            UpdateImgUser();
+        }
+
+        public void UpdateImgUser()
+        {
+            if(StaticData.User != null)
+            {
+                PathImg = StaticData.User.PathImg;
+            }
         }
 
         public void UpdateListService()
@@ -380,7 +433,7 @@ namespace MasashApp
         {
             Model_Master master = new Model_Master();
             master.Name = "Мастер Виктория";
-            master.PathImg = "master.jpg";
+            master.PathImg = "http://192.168.88.200:4362/delkasswfuemmsscktdy.jpeg";
 
             //Отзывы
             Model_review review = new Model_review()
@@ -572,9 +625,22 @@ namespace MasashApp
             }
         }
 
+        private async void OpenSideBar(object sender, SwipedEventArgs e)
+        {
+            await Navigation.PushModalAsync(new SideBar(), false);
+        }
+
         public async void SelectAuth_Touch(object sender, TappedEventArgs e)
         {
-            await Navigation.PushModalAsync(new Page_Auth(), false);
+            if(!StaticData.isAuth)
+            {
+                await Navigation.PushModalAsync(new Page_Auth(), false);
+            }
+            else
+            {
+                await Navigation.PushModalAsync(new PageInfoAccaunt(), false);
+            }
+            
         }
 
         public async void SelectDateTime_Touch(object sender, TappedEventArgs e)
@@ -584,6 +650,7 @@ namespace MasashApp
 
         public async void SelectMaster_Touch(object sender, TappedEventArgs e)
         {
+            Console.WriteLine("Переход на выбор мастера");
             await Navigation.PushModalAsync(new Page_selectMaster(), true);
         }
 
@@ -604,6 +671,18 @@ namespace MasashApp
         public async void SelectService_Touch(object sender, TappedEventArgs e)
         {
             await Navigation.PushModalAsync(new Page_selectService(), true);
+        }
+
+        public async void CreateSeans_Touch(object sender, TappedEventArgs e)
+        {
+            //if(StaticData.API.isConnect)
+            //{
+            //    await StaticData.API.SendMessageAsync("Привет|Ha");
+            //}
+
+            //LoadDataMasters();
+            
+            await loadData.LoadDataMasters();
         }
     }
 

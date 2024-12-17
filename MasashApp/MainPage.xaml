@@ -4,22 +4,26 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="MasashApp.MainPage"
              x:Name="ContentPage_Main"
+             Padding="0"
              xmlns:local="clr-namespace:MasashApp"
              Shell.NavBarIsVisible="False">
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsVisible="False"/>
     </Shell.BackButtonBehavior>
-    <Grid x:Name="MainGrid" BackgroundColor="Gray">
+    <Grid x:Name="MainGrid" BackgroundColor="Gray" VerticalOptions="Fill">
+        <Grid.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Right" Swiped="OpenSideBar"/>
+        </Grid.GestureRecognizers>
         <!--Navbar-->
-        <Grid HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+        <Grid x:Name="Navbar" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
             <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
             <Label Margin="20,10,0,0" Text="FITMASSAGE" TextColor="{StaticResource White}"/>
             <Label Margin="20,30,0,0" FontSize="12" Text="{Binding Address}" TextColor="{StaticResource White}"/>
             
             <Image Source="info_logo.png" Margin="0, 0, 40, 0" HeightRequest="40"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit" />
-            <Image Source="icon_user.png" Margin="0, 0, 10, 0" HeightRequest="25" WidthRequest="40"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit">
+            <Image x:Name="ImgUser" Source="{Binding PathImg}" Margin="0, 0, 15, 0" HeightRequest="25" WidthRequest="25"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit">
                 <Image.Behaviors>
-                    <toolkit:IconTintColorBehavior TintColor="White" />
+                    <toolkit:IconTintColorBehavior TintColor="{Binding TintColorImg}" />
                 </Image.Behaviors>
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="SelectAuth_Touch"/>
@@ -50,7 +54,11 @@
                                 <TapGestureRecognizer Tapped="SelectMaster_Touch"/>
                             </Grid.GestureRecognizers>
                         </Grid>
-                        <Label Text="Выбирите мастера" IsVisible="{Binding IsNullMaster}" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Gray"/>
+                        <Label Text="Выбирите мастера" IsVisible="{Binding IsNullMaster}" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Gray">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectMaster_Touch"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                         <Label Text="{Binding SelectedMaster.Name}" IsVisible="{Binding IsSelectedMaster}" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Black"/>
                         <Image Source="icon_forward.png" IsVisible="{Binding IsNullMaster}" Margin="0, 0, 10, 0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
                             <Image.Behaviors>
@@ -83,7 +91,11 @@
                                 <toolkit:IconTintColorBehavior TintColor="White" />
                             </Image.Behaviors>
                         </Image>
-                        <Label IsVisible="{Binding IsNullServise}" Text="Выбирите услугу" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Gray"/>
+                        <Label IsVisible="{Binding IsNullServise}" Text="Выбирите услугу" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Gray">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectService_Touch"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                         <Label IsVisible="{Binding IsSelectedServise}" Text="{Binding TotalPriceServises, StringFormat='{0} zł'}" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Black"/>
                         <Label IsVisible="{Binding IsSelectedServise}" Text="{Binding TotalMinsServises}" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,80,0" TextColor="Gray"/>
                         <Image Source="icon_forward.png" Margin="0, 0, 10, 0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
@@ -132,7 +144,11 @@
                                 <TapGestureRecognizer Tapped="SelectDateTime_Touch"/>
                             </Grid.GestureRecognizers>
                         </Grid>
-                        <Label Text="Выбирите дату и время" IsVisible="{Binding IsHideTime}" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Gray"/>
+                        <Label Text="Выбирите дату и время" IsVisible="{Binding IsHideTime}" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Gray">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectDateTime_Touch"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                         <Label Text="{Binding SelectedTimeString}" IsVisible="{Binding IsVisibleTime}" VerticalOptions="Center" HorizontalOptions="Start" Margin="80,0,0,0" TextColor="Black"/>
                         <Image Source="icon_forward.png"  IsVisible="{Binding IsHideTime}" Margin="0, 0, 10, 0" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" Aspect="AspectFit">
                             <Image.Behaviors>
@@ -150,6 +166,9 @@
                     </Grid>
                 </Grid>
                 <Grid Margin="20,30,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="CreateSeans_Touch"/>
+                    </Grid.GestureRecognizers>
                     <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
                     <Label Text="Оформить визит" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
                 </Grid>

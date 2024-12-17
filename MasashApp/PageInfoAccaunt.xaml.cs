@@ -1,3 +1,5 @@
+using MasashApp.Models;
+
 namespace MasashApp;
 
 public partial class PageInfoAccaunt : ContentPage
@@ -38,7 +40,12 @@ public partial class PageInfoAccaunt : ContentPage
 
     public void Logout_Toch(object sender, TappedEventArgs e)
     {
-
+        string mainDir = FileSystem.Current.AppDataDirectory;
+        string path = mainDir + "/GUID.txt";
+        File.Delete(path);
+        StaticData.isAuth = false;
+        StaticData.User = null;
+        Close();
     }
 
     protected override bool OnBackButtonPressed()

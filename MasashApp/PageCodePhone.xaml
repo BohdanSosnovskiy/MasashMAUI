@@ -22,17 +22,17 @@
         <Grid Margin="0,60,0,0">
             <Grid HorizontalOptions="Fill" VerticalOptions="Start" Margin="20,20,20,0">
                 <HorizontalStackLayout  HorizontalOptions="Center" VerticalOptions="Start" >
-                    <Frame Padding="0" WidthRequest="50" HeightRequest="50">
-                        <Entry TextColor="Black" Placeholder="0" FontSize="25" HorizontalTextAlignment="Center" MaxLength="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Frame Padding="0" BackgroundColor="White" WidthRequest="50" HeightRequest="50">
+                        <Entry x:Name="Entry_Code_1" Keyboard="Numeric" TextColor="Black" BackgroundColor="Transparent" Placeholder="0" FontSize="25" HorizontalTextAlignment="Center" MaxLength="1" HorizontalOptions="Center" VerticalOptions="Center"/>
                     </Frame>
-                    <Frame Padding="0" Margin="10,0,0,0" WidthRequest="50" HeightRequest="50">
-                        <Entry TextColor="Black" Placeholder="0" FontSize="25" HorizontalTextAlignment="Center" MaxLength="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Frame Padding="0" BackgroundColor="White" Margin="10,0,0,0" WidthRequest="50" HeightRequest="50">
+                        <Entry x:Name="Entry_Code_2" Keyboard="Numeric" TextColor="Black" BackgroundColor="Transparent" Placeholder="0" FontSize="25" HorizontalTextAlignment="Center" MaxLength="1" HorizontalOptions="Center" VerticalOptions="Center"/>
                     </Frame>
-                    <Frame Padding="0" Margin="10,0,0,0" WidthRequest="50" HeightRequest="50">
-                        <Entry TextColor="Black" Placeholder="0" FontSize="25" HorizontalTextAlignment="Center" MaxLength="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Frame Padding="0" BackgroundColor="White" Margin="10,0,0,0" WidthRequest="50" HeightRequest="50">
+                        <Entry x:Name="Entry_Code_3" Keyboard="Numeric" TextColor="Black" BackgroundColor="Transparent" Placeholder="0" FontSize="25" HorizontalTextAlignment="Center" MaxLength="1" HorizontalOptions="Center" VerticalOptions="Center"/>
                     </Frame>
-                    <Frame Padding="0" Margin="10,0,0,0" WidthRequest="50" HeightRequest="50">
-                        <Entry TextColor="Black" Placeholder="0" FontSize="25" HorizontalTextAlignment="Center" MaxLength="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Frame Padding="0" BackgroundColor="White" Margin="10,0,0,0" WidthRequest="50" HeightRequest="50">
+                        <Entry x:Name="Entry_Code_4" Keyboard="Numeric" TextColor="Black" BackgroundColor="Transparent" Placeholder="0" FontSize="25" HorizontalTextAlignment="Center" MaxLength="1" HorizontalOptions="Center" VerticalOptions="Center"/>
                     </Frame>
                 </HorizontalStackLayout>
                 <Label Margin="50,60,20,0" TextColor="White" VerticalOptions="Start" HorizontalOptions="Start" Text="Введите код их смс"/>

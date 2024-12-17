@@ -18,6 +18,8 @@ namespace MasashApp.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public string _id {  get; set; }
+
         private string name;
         /// <summary>
         /// Имя мастера
@@ -31,6 +33,23 @@ namespace MasashApp.Models
             set
             {
                 name = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string phone;
+        /// <summary>
+        /// Номер телефона мастера
+        /// </summary>
+        public string Phone
+        {
+            get
+            {
+                return phone;
+            }
+            set
+            {
+                phone = value;
                 OnPropertyChanged();
             }
         }
@@ -262,6 +281,33 @@ namespace MasashApp.Models
             set
             {
                 blig_day = value;
+                OnPropertyChanged();
+            }
+        }
+        private ObservableCollection<Model_service_catogory> catergory_Sevice;
+        public ObservableCollection<Model_service_catogory> Catergory_Sevice
+        {
+            get
+            {
+                return catergory_Sevice;
+            }
+            set
+            {
+                catergory_Sevice = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<Model_service_item> selectedCatergory_Item_Sevice;
+        public ObservableCollection<Model_service_item> SelectedCatergory_Item_Sevice
+        {
+            get
+            {
+                return selectedCatergory_Item_Sevice;
+            }
+            set
+            {
+                selectedCatergory_Item_Sevice = value;
                 OnPropertyChanged();
             }
         }

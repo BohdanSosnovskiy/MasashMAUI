@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasashApp.PopUp_edit_services"
+             BackgroundColor="Transparent"
+             Title="PopUp_edit_services">
+    <Grid>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+        </Grid.GestureRecognizers>
+        <Frame VerticalOptions="End" HorizontalOptions="Fill" BorderColor="Transparent" BackgroundColor="Gray" CornerRadius="0" Padding="20">
+            <ScrollView MaximumHeightRequest="400">
+                <VerticalStackLayout Padding="10">
+                    <Frame Margin="0,20,0,0" BackgroundColor="Transparent" BorderColor="Black"  HorizontalOptions="Center" VerticalOptions="Start" Padding="10">
+                        <Image x:Name="Img_service" Source="{Binding PathImg}" Margin="0, 0, 0, 0" HeightRequest="100" WidthRequest="100"  HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFit">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Select_Img"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Frame>
+                    <Frame Margin="20,10,20,0" BackgroundColor="White" Padding="0" CornerRadius="0">
+                        <Entry x:Name="Entry_Name" Text="{Binding Name}" Margin="10,0,0,0" MaxLength="25" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="15" TextColor="Black" Placeholder="Уникальное имя"/>
+                    </Frame>
+                    <Frame Margin="20,10,20,0" BackgroundColor="White" Padding="0" CornerRadius="0">
+                        <Entry x:Name="Entry_Price" Text="{Binding Price}" Keyboard="Numeric" Margin="10,0,0,0" MaxLength="25" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="15" TextColor="Black" Placeholder="Цена"/>
+                    </Frame>
+                    <Frame Margin="20,10,20,0" BackgroundColor="White" Padding="0" CornerRadius="0">
+                        <Entry x:Name="Entry_Time" Text="{Binding Time}" Keyboard="Numeric" Margin="10,0,0,0" MaxLength="25" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="15" TextColor="Black" Placeholder="Продолжительность в минутах"/>
+                    </Frame>
+                    <Grid Margin="20,30,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Edit_service"/>
+                        </Grid.GestureRecognizers>
+                        <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                        <Label Text="Добавить" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Frame>
+    </Grid>
+</ContentPage>

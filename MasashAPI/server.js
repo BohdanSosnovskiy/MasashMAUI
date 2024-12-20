@@ -347,6 +347,66 @@ app.post('/add_service', async function(req,res){
     res.send(id)
 })
 
+app.post('/edit_service', async function(req,res){
+    let body = req.body
+    let db = new DataBase(undefined,db_name)
+    await db.connectDB()
+    db.changeCollection('Services')
+
+    let Service = await db.getFind({_id: new ObjectId(body.id)})
+
+    if(body.isChangeImg == 'true')
+    {
+        //Удаление изображения категории
+        let nameFileService = Service.pathImg.substring(Service.pathImg.lastIndexOf('/')+1)
+        if(fs.existsSync("files/"+nameFileService))
+        {
+            fs.unlinkSync("files/"+nameFileService)
+        }
+    }
+
+    let service = {
+        name: body.name,
+        price: body.price,
+        time: body.time,
+        pathImg: body.pathImg,
+        categoryId: body.idCategory,
+        masterId: body.idMaster
+    }
+    let obj_service = await db.update({_id: new ObjectId(body.id)},service)
+    res.send(obj_service)
+})
+
+app.post('/remove_service', async function(req,res){
+    let body = req.body
+    let db = new DataBase(undefined,db_name)
+    await db.connectDB()
+    db.changeCollection('Services')
+
+    let idServices = body.servisesId.split(',')
+
+    for(let i = 0; i < idServices.length; i++)
+    {
+        let id_service = idServices[i].trim()
+        if(id_service != "")
+        {
+            let service = await db.getFind({_id: new ObjectId(id_service)})
+            if(service)
+            {
+                //Удаление изображения услуги
+                let nameFileService = service.pathImg.substring(service.pathImg.lastIndexOf('/')+1)
+                if(fs.existsSync("files/"+nameFileService))
+                {
+                    fs.unlinkSync("files/"+nameFileService)
+                }
+                //Удаление услуги из базы
+                await db.removeAt({_id: new ObjectId(id_service)})
+            }
+        }
+    }
+    res.send()
+})
+
 app.post('/add_master', async function(req,res){
     let body = req.body
     

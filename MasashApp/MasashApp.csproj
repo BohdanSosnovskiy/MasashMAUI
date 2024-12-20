@@ -66,6 +66,7 @@
 	  <None Remove="Resources\Images\close.png" />
 	  <None Remove="Resources\Images\download.png" />
 	  <None Remove="Resources\Images\edit.png" />
+	  <None Remove="Resources\Images\filter.png" />
 	  <None Remove="Resources\Images\google.png" />
 	  <None Remove="Resources\Images\icon_accept.png" />
 	  <None Remove="Resources\Images\icon_back.png" />
@@ -160,6 +161,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="PopUp_edit_category_service.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PopUp_edit_services.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ShaduleManager.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="SideBar.xaml">

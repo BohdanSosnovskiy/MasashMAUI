@@ -148,19 +148,92 @@ public partial class Page_add_servicess : ContentPage
                 Title_Message = "Ошибка",
                 Message = "Для начала выбирите категорию для которой хотите создать услугу"
             };
-            alert.ResponceUserEvent += Alert_RemoveCaterory;
             await Navigation.PushModalAsync(alert, false);
         }
     }
 
     public async void Edit_service(object sender, TappedEventArgs e)
     {
-        
+        if(SelectedCatergory_Item_Sevice.Count > 0)
+        {
+            if(SelectedCatergory_Item_Sevice.Count == 1)
+            {
+                await Navigation.PushModalAsync(new PopUp_edit_services(SelectedCatergory_Item_Sevice[0]), false);
+            }
+            else
+            {
+                var alert = new ModalMessage()
+                {
+                    IsButtonVisible = false,
+                    Text_yes = "Удалить",
+                    Text_no = "Отмена",
+                    Title_Message = "Ошибка",
+                    Message = "Редактирование возможно только одной услуги"
+                };
+                await Navigation.PushModalAsync(alert, false);
+            }
+        }
+        else
+        {
+            var alert = new ModalMessage()
+            {
+                IsButtonVisible = false,
+                Text_yes = "Удалить",
+                Text_no = "Отмена",
+                Title_Message = "Ошибка",
+                Message = "Для начала выбирите услугу"
+            };
+            await Navigation.PushModalAsync(alert, false);
+        }
     }
 
     public async void Remove_service(object sender, TappedEventArgs e)
     {
+        if (SelectedCatergory_Item_Sevice.Count > 0)
+        {
+            var alert = new ModalMessage()
+            {
+                IsButtonVisible = true,
+                Text_yes = "Удалить",
+                Text_no = "Отмена",
+                Title_Message = "Удалить категорию?",
+                Message = "Вы действительно хотите удалить категорию? все услуги связаные с ней будут так же удалены"
+            };
+            alert.ResponceUserEvent += Alert_RemoveItems;
+            await Navigation.PushModalAsync(alert, false);
+        }
+        else
+        {
+            var alert = new ModalMessage()
+            {
+                IsButtonVisible = false,
+                Text_yes = "Удалить",
+                Text_no = "Отмена",
+                Title_Message = "Ошибка",
+                Message = "Для начала выбирите услуги (возможно несколько)"
+            };
+            await Navigation.PushModalAsync(alert, false);
+        }
+    }
 
+    private async void Alert_RemoveItems(string message)
+    {
+        if (message == "Yes")
+        {
+            string massId = "";
+            for(int i = 0; i < SelectedCatergory_Item_Sevice.Count; i++)
+            {
+                massId += SelectedCatergory_Item_Sevice[i]._id + ",";
+            }
+            var remove_cat = await StaticData.API.POST("/remove_service", new Dictionary<string, string>()
+            {
+                { "servisesId", massId}
+            });
+
+            await StaticData.linkMainPage.loadData.LoadDataCategoryServices(StaticData.User.Master);
+
+            UpdateCollection();
+        }
     }
 
     public void Back_Touch(object sender, TappedEventArgs e)

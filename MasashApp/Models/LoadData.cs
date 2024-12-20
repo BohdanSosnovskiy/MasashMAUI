@@ -178,7 +178,7 @@ namespace MasashApp.Models
 
                         for (int j = 0; j < services.Count; j++)
                         {
-                            var item_service = services[i];
+                            var item_service = services[j];
                             Model_service_item service = new Model_service_item();
                             service._id = item_service["_id"].ToString();
                             service.Name = item_service["name"].ToString();

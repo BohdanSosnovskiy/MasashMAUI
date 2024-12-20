@@ -1,3 +1,5 @@
 ﻿.vs
 MasashAPI/node_modules/
 MasashAPI/files/
+MasashApp/bin
+MasashApp/obj

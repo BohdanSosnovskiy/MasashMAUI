@@ -41,12 +41,15 @@
                 </Frame>
                 <Frame Padding="0" BackgroundColor="Transparent" BorderColor="White" CornerRadius="0" Margin="10,10,10,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
                     <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Selecet_Schedule"/>
+                        </Grid.GestureRecognizers>
                         <Image Source="icon_calendar.png" Margin="10, 0, 0, 0" HeightRequest="30" WidthRequest="30"  HorizontalOptions="Start" VerticalOptions="Fill" Aspect="AspectFit">
                             <Image.Behaviors>
                                 <toolkit:IconTintColorBehavior TintColor="White" />
                             </Image.Behaviors>
                         </Image>
-                        <Label Text="Составить расписание" Margin="50,0,0,0" TextColor="White" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+                        <Label Text="Расписание" Margin="50,0,0,0" TextColor="White" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
                     </Grid>
                 </Frame>
             </StackLayout>

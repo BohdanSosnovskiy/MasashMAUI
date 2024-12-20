@@ -11,7 +11,7 @@ module.exports = class DataBase{
         if(db == undefined)
         {
             this.db_name = nameDB
-            this.mongoClient = new MongoClient("mongodb://127.0.0.1:27017/", { useNewUrlParser: true })
+            this.mongoClient = new MongoClient("mongodb://127.0.0.1:27017/", { })
         }
         else
         {

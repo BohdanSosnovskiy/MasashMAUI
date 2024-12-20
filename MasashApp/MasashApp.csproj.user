@@ -7,7 +7,25 @@
     <SelectedPlatformGroup>LocalDevice</SelectedPlatformGroup>
     <DeveloperId>DJJXDY3R95</DeveloperId>
     <DevelopmentTeamId>DJJXDY3R95</DevelopmentTeamId>
-    <DefaultDevice>iPhone 16 iOS 18.1</DefaultDevice>
+    <DefaultDevice>iPhone 16 iOS 18.2</DefaultDevice>
+    <TargetiOSDevice>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+	&lt;key&gt;device&lt;/key&gt;
+	&lt;dict&gt;
+		&lt;key&gt;architecture&lt;/key&gt;
+		&lt;string&gt;ARMv6, ARMv7, ARMv7s, ARM64&lt;/string&gt;
+		&lt;key&gt;model&lt;/key&gt;
+		&lt;string&gt;iPhone10,6&lt;/string&gt;
+		&lt;key&gt;os-version&lt;/key&gt;
+		&lt;string&gt;16.7.10&lt;/string&gt;
+		&lt;key&gt;os&lt;/key&gt;
+		&lt;string&gt;iOS&lt;/string&gt;
+	&lt;/dict&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</TargetiOSDevice>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetPlatformIdentifier)'=='iOS'">
     <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
@@ -69,6 +87,12 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="PopUp_edit_category_service.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="PopUp_edit_services.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="ShaduleManager.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="SideBar.xaml">

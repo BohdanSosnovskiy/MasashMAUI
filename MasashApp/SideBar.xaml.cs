@@ -86,6 +86,11 @@ public partial class SideBar : ContentPage
         await Navigation.PushModalAsync(new Page_add_servicess(), false);
     }
 
+    private async void Selecet_Schedule(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushModalAsync(new ShaduleManager(), false);
+    }
+
     private async void SwipeLeft(object sender, SwipedEventArgs e)
     {
         await Close();

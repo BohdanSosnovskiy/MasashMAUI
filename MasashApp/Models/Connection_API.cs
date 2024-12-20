@@ -10,7 +10,7 @@ namespace MasashApp.Models
 {
     public class Connection_API
     {
-        public const string ip = "192.168.88.200";
+        public const string ip = "192.168.31.169";
         const int port = 5682;
         public const int HttpPort = 4362;
 

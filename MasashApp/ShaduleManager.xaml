@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MasashApp.ShaduleManager"
+             Title="ShaduleManager">
+    <Grid>
+        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource NavBar_Baground_Light}, Dark={StaticResource NavBar_Baground_Dark}}" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
+            <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+            <Label Margin="40,0,0,0" VerticalOptions="Center" Text="Расписание" TextColor="{StaticResource White}"/>
+
+            <Image Source="icon_back.png" Margin="10, 0, 0, 0" HeightRequest="25"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="White" />
+                </Image.Behaviors>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Back_Touch"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image Source="filter.png" Margin="0, 0, 0, 0" HeightRequest="50" WidthRequest="50"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="White" />
+                </Image.Behaviors>
+            </Image>
+
+            <Image Source="icon_bell.png" Margin="0, 0, 50, 0" HeightRequest="60" WidthRequest="60"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="White" />
+                </Image.Behaviors>
+            </Image>
+            <Frame BackgroundColor="IndianRed" BorderColor="Transparent" CornerRadius="5"  Margin="0, 5, 45, 0" Padding="0" HeightRequest="20" WidthRequest="30" HorizontalOptions="End" VerticalOptions="Start">
+                <Label Text="999" FontSize="15" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Frame>
+        </Grid>
+        <Grid Margin="0,60,0,0">
+            <Grid Margin="10,20,0,0">
+                <Frame Padding="0" CornerRadius="35" HorizontalOptions="Start" VerticalOptions="Start" WidthRequest="70" HeightRequest="70">
+                    <Image Source="master.jpg" Margin="0, 0, 0, 0" WidthRequest="70" HeightRequest="70" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                </Frame>
+                <Label Margin="90,10,0,0" VerticalOptions="Start" FontAttributes="Bold" FontSize="15" Text="Имя мастера" TextColor="White"/>
+                <Label Margin="90,30,0,0" VerticalOptions="Start" FontSize="12" Text="Мастер" TextColor="Gray"/>
+            </Grid>
+            <ScrollView Margin="0,110,0,70" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="Gray">
+                <Grid>
+                    <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Fill" WidthRequest="50" BackgroundColor="Aqua">
+                        <Label Margin="0,20,0,10" Text="0" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="1" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="2" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="3" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="4" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="5" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="6" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="7" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="8" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="9" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="10" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="11" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="12" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="13" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="14" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="15" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="16" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="17" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="18" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="19" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="20" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="21" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="22" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="23" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label Margin="0,20,0,10" Text="0" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                    </VerticalStackLayout>
+                    <Grid Margin="50,0,0,0" BackgroundColor="Beige" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <Frame BackgroundColor="#f2e9fe" Margin="10,30,10,0" BorderColor="Transparent" Padding="0" HeightRequest="100" HorizontalOptions="Fill" VerticalOptions="Start">
+                            <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+                                <BoxView BackgroundColor="#dfccff" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="30"/>
+                                <Label Margin="10,5,0,0" Text="08:00 - 09:20" TextColor="Black"/>
+                                <Image Source="icon_new.png" Margin="0, -20, 0, 0" HeightRequest="70" WidthRequest="70"  HorizontalOptions="End" VerticalOptions="Start" Aspect="AspectFit">
+                                    <Image.Behaviors>
+                                        <toolkit:IconTintColorBehavior TintColor="#8e79b2" />
+                                    </Image.Behaviors>
+                                </Image>
+                                <ScrollView Margin="0,30,0,0" HorizontalOptions="Fill" VerticalOptions="Fill">
+                                    <VerticalStackLayout Margin="10,0,0,0">
+                                        <Label Text="Челяпина Зоя" TextColor="Black" FontFamily="OpenSans-Semibold.ttf"/>
+                                        <Label Text="Комплекс - 234 грн" FontSize="13" TextColor="Black" />
+                                        <Label Text="Комплекс - 234 грн" FontSize="13" TextColor="Black" />
+                                        <Label Text="Комплекс - 234 грн" FontSize="13" TextColor="Black" />
+                                        <Label Text="Комплекс - 234 грн" FontSize="13" TextColor="Black" />
+                                        <Label Text="Комплекс - 234 грн" FontSize="13" TextColor="Black" />
+                                    </VerticalStackLayout>
+                                </ScrollView>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</ContentPage>

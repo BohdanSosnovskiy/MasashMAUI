@@ -40,10 +40,13 @@
                 </Frame>
                 <Label Margin="90,10,0,0" VerticalOptions="Start" FontAttributes="Bold" FontSize="15" Text="Имя мастера" TextColor="White"/>
                 <Label Margin="90,30,0,0" VerticalOptions="Start" FontSize="12" Text="Мастер" TextColor="Gray"/>
+                <Frame Margin="0,10,20,0" BackgroundColor="Gray" Padding="0" HorizontalOptions="End" VerticalOptions="Start">
+                    <Image Source="close.png" Rotation="45" Margin="0, 0, 0, 0" WidthRequest="40" HeightRequest="40" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                </Frame>
             </Grid>
-            <ScrollView Margin="0,110,0,70" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="Gray">
+            <ScrollView Margin="0,110,0,70" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#ffffff">
                 <Grid>
-                    <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Fill" WidthRequest="50" BackgroundColor="Aqua">
+                    <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Fill" WidthRequest="50">
                         <Label Margin="0,20,0,10" Text="0" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
                         <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
                         <Label Margin="0,20,0,10" Text="1" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
@@ -94,7 +97,7 @@
                         <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
                         <Label Margin="0,20,0,10" Text="0" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
                     </VerticalStackLayout>
-                    <Grid Margin="50,0,0,0" BackgroundColor="Beige" HorizontalOptions="Fill" VerticalOptions="Fill">
+                    <Grid Margin="50,0,0,0" HorizontalOptions="Fill" VerticalOptions="Fill">
                         <Frame BackgroundColor="#f2e9fe" Margin="10,30,10,0" BorderColor="Transparent" Padding="0" HeightRequest="100" HorizontalOptions="Fill" VerticalOptions="Start">
                             <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
                                 <BoxView BackgroundColor="#dfccff" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="30"/>
@@ -116,9 +119,21 @@
                                 </ScrollView>
                             </Grid>
                         </Frame>
+                        
                     </Grid>
                 </Grid>
             </ScrollView>
+            <Grid BackgroundColor="#eaeaec" HorizontalOptions="Fill" VerticalOptions="End" HeightRequest="70">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
         </Grid>
     </Grid>
 </ContentPage>

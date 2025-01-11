@@ -1,6 +1,7 @@
 using MasashApp.Models;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MasashApp;
 
@@ -205,6 +206,27 @@ public partial class Page_selectDateTime : ContentPage, INotifyPropertyChanged
     List<Model_TimesItem> Afterun;
     public void InitTimesCalendar(List<Model_TimesItem> timesItems)
     {
+        for(int i = 0; i < timesItems.Count; i++)
+        {
+            var timeItem = timesItems[i];
+            for(int j = 0; j < StaticData.linkMainPage.SelectedMaster.Appointment_dates.Count; j++)
+            {
+                var itemAppointment = StaticData.linkMainPage.SelectedMaster.Appointment_dates[j];
+                if (timeItem.Time.Day == itemAppointment.Date.Day &&
+                    timeItem.Time.Month == itemAppointment.Date.Month &&
+                    timeItem.Time.Year == itemAppointment.Date.Year)
+                {
+                    var CurretnTime = timeItem.Time;
+                    var StartTime = itemAppointment.Date;
+                    var EndTime = itemAppointment.Date.AddMinutes(itemAppointment.GetTotalTime());
+                    if (CurretnTime >= StartTime && CurretnTime < EndTime)
+                    {
+                        timesItems[i].IsBrone = true;
+                    }
+                }
+            }
+        }
+
         Morning = new List<Model_TimesItem>();
         Day = new List<Model_TimesItem>();
         Afterun = new List<Model_TimesItem>();
@@ -376,6 +398,17 @@ public partial class Page_selectDateTime : ContentPage, INotifyPropertyChanged
     public Frame AddTime_Layout(Grid target, Model_TimesItem TimeItem, int Currnet_Col, int Current_Row)
     {
         Frame item_frame = new Frame();
+
+        if(TimeItem.IsBrone)
+        {
+            item_frame.IsEnabled = false;
+            item_frame.Opacity = 0.3;
+        }
+        else
+        {
+            item_frame.IsEnabled = true;
+        }
+
         item_frame.Padding = new Thickness(0);
         item_frame.SetValue(Grid.ColumnProperty, 0);
         item_frame.BorderColor = Colors.Gray;
@@ -392,7 +425,16 @@ public partial class Page_selectDateTime : ContentPage, INotifyPropertyChanged
         Label item_label = new Label();
         item_label.Text = GetTime(TimeItem.Time);
         item_label.FontSize = 22;
-        item_label.TextColor = Colors.Black;
+
+        if(TimeItem.IsBrone)
+        {
+            item_label.TextColor = Color.FromArgb("#996e7e");
+        }
+        else
+        {
+            item_label.TextColor = Colors.Black;
+        }
+        
         item_label.HorizontalOptions = LayoutOptions.Center;
         item_label.VerticalOptions = LayoutOptions.Center;
 

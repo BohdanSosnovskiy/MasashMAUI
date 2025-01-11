@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using MasashApp.Notifications;
 using Microsoft.Extensions.Logging;
 
 namespace MasashApp
@@ -25,6 +26,12 @@ namespace MasashApp
 
 #if DEBUG
     		builder.Logging.AddDebug();
+#endif
+
+#if ANDROID
+            builder.Services.AddTransient<INotificationManagerService, MasashApp.Platforms.Android.NotificationManagerService>();
+#elif IOS
+            builder.Services.AddTransient<INotificationManagerService, MasashApp.Platforms.iOS.NotificationManagerService>();
 #endif
 
             return builder.Build();

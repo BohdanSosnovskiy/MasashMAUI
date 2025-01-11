@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui.Behaviors;
 using MasashApp.Models;
+using MasashApp.Notifications;
 using System.ComponentModel;
 using System.Diagnostics.Metrics;
 using System.Runtime.CompilerServices;
@@ -678,6 +679,35 @@ namespace MasashApp
         public async void Toch_LoadData(object sender, TappedEventArgs e)
         {
             await loadData.LoadDataMasters();
+            Console.WriteLine("Загрузка завершена");
+            // Предположим, что приложение использует одно окно.
+            INotificationManagerService? notificationManager = Application.Current?.Windows[0].Page?.Handler?.MauiContext?.Services.GetService<INotificationManagerService>();
+            //PermissionStatus status = await Permissions.RequestAsync<NotificationPermission>(); // для андроида
+            await Task.Delay(100).ContinueWith(t => 
+            {
+                if (notificationManager != null)
+                {
+                    // Scheduled send
+                    notificationManager.SendNotification("Успех", "Данные были загружены");
+
+                    // Receive
+                    notificationManager.NotificationReceived += (sender, eventArgs) =>
+                    {
+                        var eventData = (NotificationEventArgs)eventArgs;
+
+                        MainThread.BeginInvokeOnMainThread(() =>
+                        {
+                            // После получения уведомления выполните необходимые действия в приложении.
+                        });
+                    };
+                    Console.WriteLine("Создано уведомление");
+                }
+                else
+                {
+                    Console.WriteLine("notificationManager пустой");
+                }
+            });
+            
         }
 
         public async void CreateSeans_Touch(object sender, TappedEventArgs e)

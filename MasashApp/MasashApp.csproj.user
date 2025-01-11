@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsFirstTimeProjectOpen>False</IsFirstTimeProjectOpen>
     <ActiveDebugFramework>net8.0-ios</ActiveDebugFramework>
-    <ActiveDebugProfile>Локальное устройство</ActiveDebugProfile>
+    <ActiveDebugProfile>iPhone Alex King</ActiveDebugProfile>
     <SelectedPlatformGroup>LocalDevice</SelectedPlatformGroup>
     <DeveloperId>DJJXDY3R95</DeveloperId>
     <DevelopmentTeamId>DJJXDY3R95</DevelopmentTeamId>
@@ -78,6 +78,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Page_settings.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="PopUp_AddShaduleCurrentDay.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="PopUp_add_category_service.xaml">

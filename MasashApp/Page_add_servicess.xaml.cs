@@ -17,10 +17,12 @@ public partial class Page_add_servicess : ContentPage
     {
         Loaded -= Page_add_servicess_Loaded;
 
+        //StaticData.User.Master.Catergory_Sevice = new ObservableCollection<Model_service_catogory>();
+        //StaticData.User.Master.SelectedCatergory_Item_Sevice = new ObservableCollection<Model_service_item>();
+
         await StaticData.linkMainPage.loadData.LoadDataCategoryServices(StaticData.User.Master);
 
-        StaticData.Catergory_Sevice = new ObservableCollection<Model_service_catogory>();
-        StaticData.SelectedCatergory_Item_Sevice = new ObservableCollection<Model_service_item>();
+        
 
         if(StaticData.User.Master.Catergory_Sevice.Count > 0)
         {

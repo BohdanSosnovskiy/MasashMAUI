@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui.Behaviors;
 using MasashApp.Models;
 using System.ComponentModel;
+using System.Diagnostics.Metrics;
 using System.Runtime.CompilerServices;
 
 namespace MasashApp
@@ -380,6 +381,7 @@ namespace MasashApp
 
         private void MainPage_Loaded(object? sender, EventArgs e)
         {
+            //loadData.LoadDataMasters();
             UpdateListService();
             UpdateImgUser();
         }
@@ -501,13 +503,13 @@ namespace MasashApp
             Model_schedule schedule = new Model_schedule();
 
             //21.11.2024
-            schedule.Date = new DateTime(2024, 11, 21);
+            schedule.Date = new DateTime(2025, 1, 5);
             schedule.SetDiaposonTimes("10:00", "20:00", 30);
             master.Schedules.Add(schedule);
 
             //22.11.2024
             schedule = new Model_schedule();
-            schedule.Date = new DateTime(2024, 11, 22);
+            schedule.Date = new DateTime(2025, 1, 6);
             schedule.SetDiaposonTimes("12:00", "15:30", 30);
             master.Schedules.Add(schedule);
 
@@ -547,7 +549,7 @@ namespace MasashApp
             //Записи на приём
             appointment_Date = new Model_appointment_date()
             {
-                Date = new DateTime(2024, 11, 15),
+                Date = new DateTime(2025, 1, 5),
                 Master = master,
                 User = new Model_user()
                 {
@@ -558,7 +560,7 @@ namespace MasashApp
 
             appointment_Date = new Model_appointment_date()
             {
-                Date = new DateTime(2024, 11, 17),
+                Date = new DateTime(2025, 1, 6),
                 Master = master,
                 User = new Model_user()
                 {
@@ -673,16 +675,41 @@ namespace MasashApp
             await Navigation.PushModalAsync(new Page_selectService(), true);
         }
 
+        public async void Toch_LoadData(object sender, TappedEventArgs e)
+        {
+            await loadData.LoadDataMasters();
+        }
+
         public async void CreateSeans_Touch(object sender, TappedEventArgs e)
         {
-            //if(StaticData.API.isConnect)
-            //{
-            //    await StaticData.API.SendMessageAsync("Привет|Ha");
-            //}
+            if (SelectedTime !=  null && SelectedMaster != null && StaticData.SelectedCatergory_Item_Sevice.Count > 0)
+            {
+                var services = StaticData.SelectedCatergory_Item_Sevice;
+                string str_servicesId = "";
+                for(int i  = 0; i < services.Count; i++)
+                {
+                    if(i != services.Count - 1)
+                    {
+                        str_servicesId += services[i]._id + ",";
+                    }
+                    else
+                    {
+                        str_servicesId += services[i]._id;
+                    }
+                }
 
-            //LoadDataMasters();
-            
-            await loadData.LoadDataMasters();
+                var result = await StaticData.API.POST("/add_Appointment", new Dictionary<string, string>()
+                {
+                    { "masterId", SelectedMaster._id },
+                    { "date", SelectedTime.ToString()},
+                    { "services", str_servicesId},
+                    { "userId", StaticData.GUID_User}
+                });
+            }
+            else
+            {
+
+            }
         }
     }
 

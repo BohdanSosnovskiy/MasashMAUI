@@ -344,6 +344,8 @@ namespace MasashApp.Models
 
         public Model_Master()
         {
+            Catergory_Sevice = new ObservableCollection<Model_service_catogory>();
+            SelectedCatergory_Item_Sevice = new ObservableCollection<Model_service_item>();
             Reviews = new ObservableCollection<Model_review>();
             Stars = new ObservableCollection<bool>();
             Appointment_dates = new ObservableCollection<Model_appointment_date>();

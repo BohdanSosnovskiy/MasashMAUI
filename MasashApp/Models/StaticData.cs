@@ -67,5 +67,33 @@ namespace MasashApp.Models
 
             return null;
         }
+
+        public static string GetTime(DateTime date)
+        {
+            string result = "";
+            int Hours = date.Hour;
+            int Minute = date.Minute;
+
+            if (Hours < 10)
+            {
+                result += $"0{Hours}";
+            }
+            else
+            {
+                result += $"{Hours}";
+            }
+
+            result += ":";
+
+            if (Minute < 10)
+            {
+                result += $"0{Minute}";
+            }
+            else
+            {
+                result += $"{Minute}";
+            }
+            return result;
+        }
     }
 }

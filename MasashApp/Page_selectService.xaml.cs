@@ -18,60 +18,102 @@ public partial class Page_selectService : ContentPage
         StaticData.Catergory_Sevice = new ObservableCollection<Model_service_catogory>();
         StaticData.SelectedCatergory_Item_Sevice = new ObservableCollection<Model_service_item>();
 
-        Model_service_catogory Category = new Model_service_catogory();
-        Category.Name = "Маникюр";
-        Category.PathImg = "manic_1.jpg";
+        if(StaticData.linkMainPage.SelectedMaster != null)
+        {
+            //Если выбрали мастера показываем только его услуги
 
-        Model_service_item item = new Model_service_item();
-        item.Name = "Манікюр гігієнічний ( без покриття)";
-        item.PathImg = "manic_1.jpg";
-        item.Price = 70;
-        item.Time = 30;
-        item.LinkModelCategory = Category;
+            ListView_Categorys.BindingContext = StaticData.linkMainPage.SelectedMaster.Catergory_Sevice;
+            ListView_Categorys.ItemsSource = StaticData.linkMainPage.SelectedMaster.Catergory_Sevice;
 
-        Category.Items.Add(item);
-        item = new Model_service_item();
-        item.Name = "Маникюр с покрытием";
-        item.PathImg = "manic_2.jpg";
-        item.Price = 140;
-        item.Time = 60;
-        item.LinkModelCategory = Category;
+            if (StaticData.linkMainPage.SelectedMaster.Catergory_Sevice.Count > 0)
+            {
+                if (StaticData.linkMainPage.SelectedMaster.Catergory_Sevice[0].Items.Count > 0)
+                {
+                    ListView_CategorysItems.BindingContext = StaticData.linkMainPage.SelectedMaster.Catergory_Sevice[0].Items;
+                    ListView_CategorysItems.ItemsSource = StaticData.linkMainPage.SelectedMaster.Catergory_Sevice[0].Items;
+                }
+                else
+                {
+                    ListView_CategorysItems.BindingContext = new ObservableCollection<Model_service_item>();
+                    ListView_CategorysItems.ItemsSource = new ObservableCollection<Model_service_item>();
+                }
+            }
+        }
+        else
+        {
+            //Иначе показываем все услуги
+            ListView_Categorys.BindingContext = StaticData.Catergory_Sevice;
+            ListView_Categorys.ItemsSource = StaticData.Catergory_Sevice;
 
-        Category.Items.Add(item);
+            if(StaticData.Catergory_Sevice.Count > 0)
+            {
+                if (StaticData.Catergory_Sevice[0].Items.Count > 0)
+                {
+                    ListView_CategorysItems.BindingContext = StaticData.Catergory_Sevice[0].Items;
+                    ListView_CategorysItems.ItemsSource = StaticData.Catergory_Sevice[0].Items;
+                }
+                else
+                {
+                    ListView_CategorysItems.BindingContext = new ObservableCollection<Model_service_item>();
+                    ListView_CategorysItems.ItemsSource = new ObservableCollection<Model_service_item>();
+                }
+            }
+            
+        }
+        /*
+        //Model_service_catogory Category = new Model_service_catogory();
+        //Category.Name = "Маникюр";
+        //Category.PathImg = "manic_1.jpg";
 
-        item = new Model_service_item();
-        item.Name = "Гелевая коррекция (укрепление)";
-        item.PathImg = "manic_4.jpg";
-        item.Price = 160;
-        item.Time = 60;
-        item.LinkModelCategory = Category;
+        //Model_service_item item = new Model_service_item();
+        //item.Name = "Манікюр гігієнічний ( без покриття)";
+        //item.PathImg = "manic_1.jpg";
+        //item.Price = 70;
+        //item.Time = 30;
+        //item.LinkModelCategory = Category;
 
-        Category.Items.Add(item);
+        //Category.Items.Add(item);
+        //item = new Model_service_item();
+        //item.Name = "Маникюр с покрытием";
+        //item.PathImg = "manic_2.jpg";
+        //item.Price = 140;
+        //item.Time = 60;
+        //item.LinkModelCategory = Category;
 
-        StaticData.Catergory_Sevice.Add(Category);
+        //Category.Items.Add(item);
 
-        Category = new Model_service_catogory();
-        Category.Name = "Педикюр";
-        Category.PathImg = "manic_3.jpg";
+        //item = new Model_service_item();
+        //item.Name = "Гелевая коррекция (укрепление)";
+        //item.PathImg = "manic_4.jpg";
+        //item.Price = 160;
+        //item.Time = 60;
+        //item.LinkModelCategory = Category;
 
-        item = new Model_service_item();
-        item.Name = "Педикюр";
-        item.PathImg = "manic_3.jpg";
-        item.Price = 150;
-        item.Time = 90;
-        item.LinkModelCategory = Category;
+        //Category.Items.Add(item);
 
-        Category.Items.Add(item);
+        //StaticData.Catergory_Sevice.Add(Category);
 
-        StaticData.Catergory_Sevice.Add(Category);
+        //Category = new Model_service_catogory();
+        //Category.Name = "Педикюр";
+        //Category.PathImg = "manic_3.jpg";
 
-        ListView_Categorys.BindingContext = StaticData.Catergory_Sevice;
-        ListView_Categorys.ItemsSource = StaticData.Catergory_Sevice;
+        //item = new Model_service_item();
+        //item.Name = "Педикюр";
+        //item.PathImg = "manic_3.jpg";
+        //item.Price = 150;
+        //item.Time = 90;
+        //item.LinkModelCategory = Category;
+
+        //Category.Items.Add(item);
+
+        //StaticData.Catergory_Sevice.Add(Category);
+        */
+        
         ListView_Categorys.ItemTapped += ListView_Categorys_ItemTapped;
 
-        ListView_CategorysItems.BindingContext = StaticData.Catergory_Sevice[0].Items;
-        ListView_CategorysItems.ItemsSource = StaticData.Catergory_Sevice[0].Items;
+        
 
+        //Услуги которые мы выбрали в конечном этоге
         Carusel_Services.BindingContext = StaticData.SelectedCatergory_Item_Sevice;
 
         Carusel_Services.ItemsSource = StaticData.SelectedCatergory_Item_Sevice;

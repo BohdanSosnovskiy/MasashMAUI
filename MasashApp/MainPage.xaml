@@ -172,6 +172,14 @@
                     <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
                     <Label Text="Оформить визит" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
                 </Grid>
+
+                <Grid Margin="20,30,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Toch_LoadData"/>
+                    </Grid.GestureRecognizers>
+                    <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                    <Label Text="Загрузка данных" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
+                </Grid>
             </StackLayout>
         </Grid>
         

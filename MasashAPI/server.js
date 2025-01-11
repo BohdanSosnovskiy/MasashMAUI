@@ -347,6 +347,27 @@ app.post('/add_service', async function(req,res){
     res.send(id)
 })
 
+app.post('/get_services', async function(req,res){
+    let body = req.body
+    let db = new DataBase(undefined,db_name)
+    await db.connectDB()
+    db.changeCollection('Services')
+
+    let list_id = body.list_id.split(',')
+
+
+    let Service = []
+
+    for(let i = 0; i < list_id.length; i++)
+    {
+        let id = list_id[i]
+        let service = await db.getFind({_id: new ObjectId(id)})
+        Service.push(service)
+    }
+    
+    res.send(Service)
+})
+
 app.post('/edit_service', async function(req,res){
     let body = req.body
     let db = new DataBase(undefined,db_name)
@@ -490,14 +511,91 @@ app.post('/get_appointment', async function(req,res){
     let db = new DataBase(undefined,db_name)
     await db.connectDB()
     db.changeCollection('Appointment')
-    res.send(await db.getFind({masterId: req.body.masterId}))
+    let Appointment = await db.getFind({masterId: req.body.masterId})
+    if(Appointment != null)
+    {
+        if(!Array.isArray(Appointment))
+        {
+            let mass = []
+            mass.push(Appointment)
+            Appointment = mass
+        }
+    }
+
+    res.send(Appointment)
 })
+
 
 app.post('/get_schedule', async function(req,res){
     let db = new DataBase(undefined,db_name)
     await db.connectDB()
     db.changeCollection('Schedule')
-    res.send(await db.getFind({masterId: req.body.masterId}))
+    let shedule = await db.getFind({masterId: req.body.masterId})
+    if(!Array.isArray(shedule))
+    {
+        let mass = []
+        mass.push(shedule)
+        shedule = mass
+    }
+
+    res.send(shedule)
+})
+
+app.post('/get_schedule_byDay', async function(req,res){
+    let db = new DataBase(undefined,db_name)
+    await db.connectDB()
+    db.changeCollection('Schedule')
+    console.log("Получение расписание на " + req.body.date)
+    console.log("Мастером: "+ req.body.masterId)
+    let shedule = await db.getFind({masterId: req.body.masterId, date: req.body.date})
+    if(shedule != null && shedule != undefined)
+    {
+        if(!Array.isArray(shedule))
+            {
+                let mass = []
+                mass.push(shedule)
+                shedule = mass
+            }
+    }
+    
+    res.send(shedule)
+})
+
+app.post('/add_schedule', async function(req,res){
+    let db = new DataBase(undefined,db_name)
+    await db.connectDB()
+    db.changeCollection('Schedule')
+    console.log("Добавление расписание на " + req.body.date)
+    console.log("Мастером: "+ req.body.masterId)
+    console.log("Время: "+ req.body.fromTime + " - " + req.body.toTime)
+
+    let schedule = {
+        masterId: req.body.masterId,
+        date: req.body.date,
+        fromTime: req.body.fromTime,
+        toTime: req.body.toTime
+    }
+
+    let obj_schedule = await db.insert(schedule)
+    let id = obj_schedule.insertedId
+    res.send(id)
+})
+
+app.post('/add_Appointment', async function(req,res){
+    let db = new DataBase(undefined,db_name)
+    await db.connectDB()
+    db.changeCollection('Appointment')
+
+    let seans = {
+        masterId: req.body.masterId,
+        date: req.body.date,
+        userId: req.body.userId,
+        services: req.body.services
+    }
+
+    let obj_seans = await db.insert(seans)
+    let id = obj_seans.insertedId
+    res.send(id)
 })
 
 function replaceAll(from,to,text)

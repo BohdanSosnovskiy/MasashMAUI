@@ -23,82 +23,96 @@
                     <toolkit:IconTintColorBehavior TintColor="White" />
                 </Image.Behaviors>
             </Image>
+            
 
             <Image Source="icon_bell.png" Margin="0, 0, 50, 0" HeightRequest="60" WidthRequest="60"  HorizontalOptions="End" VerticalOptions="Center" Aspect="AspectFit">
                 <Image.Behaviors>
                     <toolkit:IconTintColorBehavior TintColor="White" />
                 </Image.Behaviors>
             </Image>
+
+            <Grid Margin="0, 0, 110, 0" HorizontalOptions="End" VerticalOptions="Center">
+                <DatePicker x:Name="DatePicker_selected" DateSelected="DatePicker_selected_DateSelected" FontSize="20" FontFamily="OpenSans-Semibold.ttf" Format="dd.MM" IsVisible="Visible"/>
+                <Image Source="icon_back.png" Rotation="-90" Margin="55, 0, 0, 0" HeightRequest="25" WidthRequest="25"  HorizontalOptions="Start" VerticalOptions="Center" Aspect="AspectFit">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="White" />
+                    </Image.Behaviors>
+                </Image>
+            </Grid>
+            
             <Frame BackgroundColor="IndianRed" BorderColor="Transparent" CornerRadius="5"  Margin="0, 5, 45, 0" Padding="0" HeightRequest="20" WidthRequest="30" HorizontalOptions="End" VerticalOptions="Start">
                 <Label Text="999" FontSize="15" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
             </Frame>
         </Grid>
         <Grid Margin="0,60,0,0">
-            <Grid Margin="10,20,0,0">
+            <Grid x:Name="Grid_MasterInfo" Margin="10,20,0,0">
                 <Frame Padding="0" CornerRadius="35" HorizontalOptions="Start" VerticalOptions="Start" WidthRequest="70" HeightRequest="70">
-                    <Image Source="master.jpg" Margin="0, 0, 0, 0" WidthRequest="70" HeightRequest="70" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                    <Image Source="{Binding PathImg}" Margin="0, 0, 0, 0" WidthRequest="70" HeightRequest="70" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
                 </Frame>
-                <Label Margin="90,10,0,0" VerticalOptions="Start" FontAttributes="Bold" FontSize="15" Text="Имя мастера" TextColor="White"/>
+                <Label Margin="90,10,0,0" VerticalOptions="Start" FontAttributes="Bold" FontSize="15" Text="{Binding Name}" TextColor="White"/>
                 <Label Margin="90,30,0,0" VerticalOptions="Start" FontSize="12" Text="Мастер" TextColor="Gray"/>
                 <Frame Margin="0,10,20,0" BackgroundColor="Gray" Padding="0" HorizontalOptions="End" VerticalOptions="Start">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Add_ShaduleCurrentDay"/>
+                    </Frame.GestureRecognizers>
                     <Image Source="close.png" Rotation="45" Margin="0, 0, 0, 0" WidthRequest="40" HeightRequest="40" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
                 </Frame>
             </Grid>
             <ScrollView Margin="0,110,0,70" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="#ffffff">
-                <Grid>
+                <Grid x:Name="ViewShadule">
                     <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Fill" WidthRequest="50">
-                        <Label Margin="0,20,0,10" Text="0" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="1" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="2" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="3" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="4" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="5" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="6" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="7" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="8" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="9" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="10" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="11" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="12" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="13" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="14" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="15" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="16" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="17" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="18" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="19" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="20" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="21" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="22" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="23" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
-                        <Label Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
-                        <Label Margin="0,20,0,10" Text="0" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_0_0" Margin="0,20,0,10" Text="0" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_0_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_1_0" Margin="0,20,0,10" Text="1" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_1_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_2_0" Margin="0,20,0,10" Text="2" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_2_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_3_0" Margin="0,20,0,10" Text="3" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_3_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_4_0" Margin="0,20,0,10" Text="4" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_4_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_5_0" Margin="0,20,0,10" Text="5" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_5_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_6_0" Margin="0,20,0,10" Text="6" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_6_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_7_0" Margin="0,20,0,10" Text="7" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_7_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_8_0" Margin="0,20,0,10" Text="8" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_8_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_9_0" Margin="0,20,0,10" Text="9" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_9_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_10_0" Margin="0,20,0,10" Text="10" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_10_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_11_0" Margin="0,20,0,10" Text="11" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_11_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_12_0" Margin="0,20,0,10" Text="12" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_12_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_13_0" Margin="0,20,0,10" Text="13" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_13_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_14_0" Margin="0,20,0,10" Text="14" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_14_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_15_0" Margin="0,20,0,10" Text="15" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_15_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_16_0" Margin="0,20,0,10" Text="16" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_16_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_17_0" Margin="0,20,0,10" Text="17" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_17_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_18_0" Margin="0,20,0,10" Text="18" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_18_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_19_0" Margin="0,20,0,10" Text="19" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_19_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_20_0" Margin="0,20,0,10" Text="20" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_20_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_21_0" Margin="0,20,0,10" Text="21" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_21_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_22_0" Margin="0,20,0,10" Text="22" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_22_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_23_0" Margin="0,20,0,10" Text="23" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
+                        <Label x:Name="time_23_30" Margin="0,20,0,10" Text="30" FontFamily="OpenSans-Semibold.ttf"  TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="12"/>
+                        <Label x:Name="time_24_0" Margin="0,20,0,10" Text="0" FontFamily="OpenSans-Semibold.ttf" FontAttributes="Bold" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Center" FontSize="25"/>
                     </VerticalStackLayout>
-                    <Grid Margin="50,0,0,0" HorizontalOptions="Fill" VerticalOptions="Fill">
-                        <Frame BackgroundColor="#f2e9fe" Margin="10,30,10,0" BorderColor="Transparent" Padding="0" HeightRequest="100" HorizontalOptions="Fill" VerticalOptions="Start">
+                    <Grid x:Name="Grid_BlockShadule" Margin="50,0,0,0" HorizontalOptions="Fill" VerticalOptions="Fill">
+                        <!--<Frame BackgroundColor="#f2e9fe" Margin="10,90,10,0" BorderColor="Transparent" Padding="0" HeightRequest="180" HorizontalOptions="Fill" VerticalOptions="Start">
                             <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
                                 <BoxView BackgroundColor="#dfccff" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="30"/>
                                 <Label Margin="10,5,0,0" Text="08:00 - 09:20" TextColor="Black"/>
@@ -118,12 +132,16 @@
                                     </VerticalStackLayout>
                                 </ScrollView>
                             </Grid>
-                        </Frame>
-                        
+                        </Frame>-->
+
                     </Grid>
                 </Grid>
             </ScrollView>
-            <Grid BackgroundColor="#eaeaec" HorizontalOptions="Fill" VerticalOptions="End" HeightRequest="70">
+            <Grid Margin="0,110,0,0" x:Name="ViewEmty" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Image Source="calendar.png" Margin="0, 150, 0, 0" HeightRequest="100" WidthRequest="100"  HorizontalOptions="Center" VerticalOptions="Start" Aspect="AspectFit"/>
+                <Label Text="На данное число нет расписания" TextColor="Black" FontSize="24" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+            </Grid>
+            <Grid Padding="10,0,10,0" BackgroundColor="#eaeaec" HorizontalOptions="Fill" VerticalOptions="End" HeightRequest="70">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -133,6 +151,55 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                <Grid x:Name="Grid_Mon" Grid.Column="0">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GridWeek_Toch"/>
+                    </Grid.GestureRecognizers>
+                    <Label Text="ПН" HorizontalOptions="Center" VerticalOptions="Start" TextColor="Gray" FontSize="12" Margin="0,5,0,0"/>
+                    <Label Text="21" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black" FontSize="18" FontFamily="OpenSans-Semibold.ttf"/>
+                </Grid>
+                <Grid x:Name="Grid_Tue" Grid.Column="1">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GridWeek_Toch"/>
+                    </Grid.GestureRecognizers>
+                    <Label Text="ВТ" HorizontalOptions="Center" VerticalOptions="Start" TextColor="Gray" FontSize="12" Margin="0,5,0,0"/>
+                    <Label Text="22" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black" FontSize="18" FontFamily="OpenSans-Semibold.ttf"/>
+                </Grid>
+                <Grid x:Name="Grid_Wed" Grid.Column="2">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GridWeek_Toch"/>
+                    </Grid.GestureRecognizers>
+                    <Label Text="СР" HorizontalOptions="Center" VerticalOptions="Start" TextColor="Gray" FontSize="12" Margin="0,5,0,0"/>
+                    <Label Text="23" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black" FontSize="18" FontFamily="OpenSans-Semibold.ttf"/>
+                </Grid>
+                <Grid x:Name="Grid_Thu" Grid.Column="3">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GridWeek_Toch"/>
+                    </Grid.GestureRecognizers>
+                    <Label Text="ЧТ" HorizontalOptions="Center" VerticalOptions="Start" TextColor="Gray" FontSize="12" Margin="0,5,0,0"/>
+                    <Label Text="24" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black" FontSize="18" FontFamily="OpenSans-Semibold.ttf"/>
+                </Grid>
+                <Grid x:Name="Grid_Fri" Grid.Column="4">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GridWeek_Toch"/>
+                    </Grid.GestureRecognizers>
+                    <Label Text="ПТ" HorizontalOptions="Center" VerticalOptions="Start" TextColor="Gray" FontSize="12" Margin="0,5,0,0"/>
+                    <Label Text="25" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black" FontSize="18" FontFamily="OpenSans-Semibold.ttf"/>
+                </Grid>
+                <Grid x:Name="Grid_Sat" Grid.Column="5">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GridWeek_Toch"/>
+                    </Grid.GestureRecognizers>
+                    <Label Text="СБ" HorizontalOptions="Center" VerticalOptions="Start" TextColor="Gray" FontSize="12" Margin="0,5,0,0"/>
+                    <Label Text="26" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black" FontSize="18" FontFamily="OpenSans-Semibold.ttf"/>
+                </Grid>
+                <Grid x:Name="Grid_Sun" Grid.Column="6">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GridWeek_Toch"/>
+                    </Grid.GestureRecognizers>
+                    <Label Text="ВС" HorizontalOptions="Center" VerticalOptions="Start" TextColor="Gray" FontSize="12" Margin="0,5,0,0"/>
+                    <Label Text="27" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black" FontSize="18" FontFamily="OpenSans-Semibold.ttf"/>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>

@@ -1,6 +1,7 @@
 ﻿
 
 using Newtonsoft.Json;
+using System.Collections.ObjectModel;
 
 namespace MasashApp.Models
 {
@@ -77,12 +78,51 @@ namespace MasashApp.Models
 
             if (appointment_res != "")
             {
-                if (appointment_res[0] != '{')
+
+                var parsing_appointment = StaticData.API.ParsingListData(appointment_res);
+                for (int j = 0; j < parsing_appointment.Count; j++)
                 {
-                    var parsing_appointment = StaticData.API.ParsingListData(appointment_res);
-                    for (int j = 0; j < parsing_appointment.Count; j++)
+                    var item_appointment = parsing_appointment[j];
+
+                    ObservableCollection<Model_service_item> service_Items = new ObservableCollection<Model_service_item>();
+
+                    string[] id_mass = item_appointment["services"].Split(',');
+                    for (int i = 0; i < id_mass.Length; i++)
                     {
-                        var item_appointment = parsing_appointment[j];
+                        var id = id_mass[i];
+                        bool isFind = false;
+                        for (int k = 0; k < master.Catergory_Sevice.Count; k++)
+                        {
+                            if (!isFind)
+                            {
+                                var category = master.Catergory_Sevice[k];
+                                for (int l = 0; l < category.Items.Count; l++)
+                                {
+                                    var service = category.Items[l];
+                                    if (service._id == id)
+                                    {
+                                        service_Items.Add(service);
+                                        isFind = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                    }
+
+                    var res_user = await StaticData.API.POST("/getInfoUser", new Dictionary<string, string>()
+                    {
+                        { "id", item_appointment["userId"] }
+                    });
+
+                    if (res_user != "")
+                    {
+                        Dictionary<string, string> parsing = StaticData.API.ParsingData(res_user);
+
                         Model_appointment_date appointment = new Model_appointment_date()
                         {
                             _id = item_appointment["_id"],
@@ -90,26 +130,19 @@ namespace MasashApp.Models
                             Master = master,
                             User = new Model_user()
                             {
-                                Name = "Таня"
-                            }
+                                PathImg = parsing["pathImg"],
+                                Name = parsing["name"],
+                                Email = parsing["email"],
+                                Date_birthday = StaticData.API.GetDateFromString(parsing["date_birthday"]),
+                                Date_reg = StaticData.API.GetDateFromString(parsing["date_reg"]),
+                                IsAdmin = Convert.ToBoolean(parsing["isAdmin"]),
+                                IsMaster = Convert.ToBoolean(parsing["isMaster"]),
+                                Phone = parsing["phone"]
+                            },
+                            Catergory_Item_Sevice = service_Items
                         };
                         master.Appointment_dates.Add(appointment);
                     }
-                }
-                else
-                {
-                    var parsing_appointment = StaticData.API.ParsingData(appointment_res);
-                    Model_appointment_date appointment = new Model_appointment_date()
-                    {
-                        _id = parsing_appointment["_id"],
-                        Date = StaticData.API.GetDateFromString(parsing_appointment["date"]),
-                        Master = master,
-                        User = new Model_user()
-                        {
-                            Name = "Таня"
-                        }
-                    };
-                    master.Appointment_dates.Add(appointment);
                 }
             }
         }
@@ -121,31 +154,16 @@ namespace MasashApp.Models
                 { "masterId", master._id }
             });
 
-            if (schedule_res != "")
-            {
-                if (schedule_res[0] != '{')
-                {
-                    var parsing_schedule = StaticData.API.ParsingListData(schedule_res);
-                    for (int j = 0; j < parsing_schedule.Count; j++)
-                    {
-                        var item_schedule = parsing_schedule[j];
-                        Model_schedule schedule = new Model_schedule();
-                        schedule._id = item_schedule["_id"];
-                        schedule.Date = StaticData.API.GetDateFromString(item_schedule["date"]);
-                        schedule.SetDiaposonTimes("10:00", "20:00", 30);
-                        master.Schedules.Add(schedule);
-                    }
-                }
-                else
-                {
-                    var parsing_schedule = StaticData.API.ParsingData(schedule_res);
-                    Model_schedule schedule = new Model_schedule();
-                    schedule._id = parsing_schedule["_id"];
-                    schedule.Date = StaticData.API.GetDateFromString(parsing_schedule["date"]);
-                    schedule.SetDiaposonTimes("10:00", "20:00", 30);
-                    master.Schedules.Add(schedule);
-                }
 
+            var parsing_schedule = StaticData.API.ParsingListData(schedule_res);
+            for (int j = 0; j < parsing_schedule.Count; j++)
+            {
+                var item_schedule = parsing_schedule[j];
+                Model_schedule schedule = new Model_schedule();
+                schedule._id = item_schedule["_id"];
+                schedule.Date = StaticData.API.GetDateFromString(item_schedule["date"]);
+                schedule.SetDiaposonTimes(item_schedule["fromTime"], item_schedule["toTime"], 30);
+                master.Schedules.Add(schedule);
             }
         }
 
@@ -223,17 +241,20 @@ namespace MasashApp.Models
                         if(StaticData.User.Phone == master.Phone)
                         {
                             StaticData.User.Master = master;
+                            StaticData.User.IsMaster = true;
                         }
                     }
 
                     //Получение всех отзывов на конкретного мастера
                     await LoadDataReview(master);
-                    //Кто записан на прием
-                    await LoadDataAppointment(master);
+                    
                     //Расписание мастера
                     await LoadDataSchedule(master);
 
                     await LoadDataCategoryServices(master);
+
+                    //Кто записан на прием
+                    await LoadDataAppointment(master);
 
                     StaticData.Masters.Add(master);
                 }

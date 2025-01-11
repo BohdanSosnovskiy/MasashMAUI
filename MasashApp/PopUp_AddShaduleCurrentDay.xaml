@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasashApp.PopUp_AddShaduleCurrentDay"
+             BackgroundColor="Transparent"
+             Title="PopUp_AddShaduleCurrentDay">
+    <Grid>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+        </Grid.GestureRecognizers>
+        <Frame VerticalOptions="End" HorizontalOptions="Fill" BorderColor="Transparent" BackgroundColor="Gray" CornerRadius="0" Padding="20">
+            <ScrollView MaximumHeightRequest="400">
+                <VerticalStackLayout Padding="10">
+                    <Label Margin="0,0,0,0" FontSize="20" FontFamily="OpenSans-Semibold.ttf" HorizontalOptions="Center" Text="Добавить расписание"/>
+                    <Label Margin="0,0,0,20" FontSize="20" HorizontalOptions="Center" Text="}"/>
+                    <Label Margin="20,0,0,0" HorizontalOptions="Start" Text="Со скольки"/>
+                    <Frame Margin="20,10,20,0" BackgroundColor="White" Padding="0" CornerRadius="0">
+                        <TimePicker x:Name="From_TimePicker" TextColor="Black" Time="8:00:00" HorizontalOptions="Fill"/>
+                    </Frame>
+                    <Label Margin="20,5,0,0" HorizontalOptions="Start" Text="До скольки"/>
+                    <Frame Margin="20,10,20,0" BackgroundColor="White" Padding="0" CornerRadius="0">
+                        <TimePicker x:Name="To_TimePicker" TextColor="Black" Time="20:00:00" HorizontalOptions="Fill"/>
+                    </Frame>
+                    <Grid Margin="20,10,20,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Create_Shadule"/>
+                        </Grid.GestureRecognizers>
+                        <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                        <Label Text="Создать" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Frame>
+    </Grid>
+</ContentPage>

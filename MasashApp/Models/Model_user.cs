@@ -32,6 +32,8 @@ namespace MasashApp.Models
             return result;
         }
 
+        public string _id { get; set; }
+
         private string name;
         public string Name
         {

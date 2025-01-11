@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -61,6 +62,20 @@ namespace MasashApp.Models
                 master = value;
                 OnPropertyChanged();
             }
+        }
+
+        public ObservableCollection<Model_service_item> Catergory_Item_Sevice = new ObservableCollection<Model_service_item>();
+
+        public int GetTotalTime()
+        {
+            int total = 0;
+
+            for(int i = 0; i < Catergory_Item_Sevice.Count; i++)
+            {
+                total += Catergory_Item_Sevice[i].Time;
+            }
+
+            return total;
         }
     }
 }

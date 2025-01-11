@@ -62,6 +62,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\AppIcon\appicon.svg" />
+	  <None Remove="Resources\Images\calendar.png" />
 	  <None Remove="Resources\Images\call.png" />
 	  <None Remove="Resources\Images\close.png" />
 	  <None Remove="Resources\Images\download.png" />
@@ -152,6 +153,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Page_settings.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PopUp_AddShaduleCurrentDay.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="PopUp_add_category_service.xaml">

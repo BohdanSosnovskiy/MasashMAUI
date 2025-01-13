@@ -65,6 +65,7 @@
 	  <None Remove="Resources\Images\calendar.png" />
 	  <None Remove="Resources\Images\call.png" />
 	  <None Remove="Resources\Images\close.png" />
+	  <None Remove="Resources\Images\comment.png" />
 	  <None Remove="Resources\Images\download.png" />
 	  <None Remove="Resources\Images\edit.png" />
 	  <None Remove="Resources\Images\filter.png" />
@@ -153,6 +154,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Page_settings.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PopUp_AddReview.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="PopUp_AddShaduleCurrentDay.xaml">

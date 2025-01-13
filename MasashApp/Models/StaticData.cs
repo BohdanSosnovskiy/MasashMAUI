@@ -21,7 +21,7 @@ namespace MasashApp.Models
 
         public static ObservableCollection<Model_service_catogory> Catergory_Sevice = new ObservableCollection<Model_service_catogory>();
         public static ObservableCollection<Model_service_item> SelectedCatergory_Item_Sevice = new ObservableCollection<Model_service_item>();
-
+        public static List<string> DebugLog = new List<string>();
         public static string GetRandomName()
         {
             string result = "";

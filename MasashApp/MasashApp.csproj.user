@@ -80,6 +80,9 @@
     <MauiXaml Update="Page_settings.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="PopUp_AddReview.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="PopUp_AddShaduleCurrentDay.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

@@ -18,6 +18,7 @@ namespace MasashApp.Models
         }
 
         public string _id {  get; set; }
+        public string AppointmentId { get; set; }
 
         private string name;
         public string Name

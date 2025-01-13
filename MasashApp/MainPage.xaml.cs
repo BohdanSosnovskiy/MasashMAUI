@@ -348,7 +348,7 @@ namespace MasashApp
             IsNullServise = true;
             IsSelectedServise = false;
             Loaded += MainPage_Loaded;
-            InitStaticData();
+
             StaticData.linkMainPage = this;
             Grid_SelectedCategorysItems.BindingContext = this;
             HeightRequestSelectedCategorysItems = 40;

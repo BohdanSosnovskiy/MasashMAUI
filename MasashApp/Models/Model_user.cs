@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -15,6 +16,11 @@ namespace MasashApp.Models
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public Model_user()
+        {
+            Appointment_dates = new ObservableCollection<Model_appointment_date>();
         }
 
         public Dictionary<string, string> ToPOST()
@@ -161,6 +167,23 @@ namespace MasashApp.Models
             set
             {
                 date_reg = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<Model_appointment_date> appointment_dates;
+        /// <summary>
+        /// Список записей на прием
+        /// </summary>
+        public ObservableCollection<Model_appointment_date> Appointment_dates
+        {
+            get
+            {
+                return appointment_dates;
+            }
+            set
+            {
+                appointment_dates = value;
                 OnPropertyChanged();
             }
         }

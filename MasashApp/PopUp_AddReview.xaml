@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MasashApp.PopUp_AddReview"
+             BackgroundColor="Transparent"
+             Title="PopUp_AddReview">
+    <Grid>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+        </Grid.GestureRecognizers>
+        <Frame VerticalOptions="End" HorizontalOptions="Fill" BorderColor="Transparent" BackgroundColor="#cccccc" CornerRadius="0" Padding="20">
+            <ScrollView MaximumHeightRequest="400">
+                <Grid Padding="10">
+                    <Label Text="Как вы оцениваете работу мастера?" TextColor="Black" FontSize="16" FontFamily="opensans-semibold.ttf"/>
+                    <HorizontalStackLayout Spacing="-25" Margin="75,40,0,0" Padding="0" VerticalOptions="Start" HorizontalOptions="Start">
+                        <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#c2c2c3" />
+                            </Image.Behaviors>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Set_1_Star"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#c2c2c3" />
+                            </Image.Behaviors>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Set_2_Star"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#c2c2c3" />
+                            </Image.Behaviors>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Set_3_Star"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#c2c2c3" />
+                            </Image.Behaviors>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Set_4_Star"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image Source="icon_star.png" HeightRequest="50" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#c2c2c3" />
+                            </Image.Behaviors>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Set_5_Star"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="-25" Margin="75,40,0,0" Padding="0" VerticalOptions="Start" HorizontalOptions="Start">
+                        <Image Source="icon_star.png" HeightRequest="50" IsVisible="{Binding Stars[0]}" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#fca103" />
+                            </Image.Behaviors>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Set_1_Star"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image Source="icon_star.png" HeightRequest="50" IsVisible="{Binding Stars[1]}" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#fca103" />
+                            </Image.Behaviors>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Set_2_Star"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image Source="icon_star.png" HeightRequest="50" IsVisible="{Binding Stars[2]}" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#fca103" />
+                            </Image.Behaviors>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Set_3_Star"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image Source="icon_star.png" HeightRequest="50" IsVisible="{Binding Stars[3]}" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#fca103" />
+                            </Image.Behaviors>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Set_4_Star"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image Source="icon_star.png" HeightRequest="50" IsVisible="{Binding Stars[4]}" WidthRequest="50" Margin="0, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Start" Aspect="AspectFill">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#fca103" />
+                            </Image.Behaviors>
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Set_5_Star"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </HorizontalStackLayout>
+                    <Frame Margin="10,90,10,0" HorizontalOptions="Fill" VerticalOptions="Start" BackgroundColor="White" Padding="0" CornerRadius="0">
+                        <Entry x:Name="Entry_Description" Margin="10,0,0,0" MaxLength="25" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="15" TextColor="Black" Placeholder="Коментарий"/>
+                    </Frame>
+                    <Grid Margin="10,150,10,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Add_review_Toch"/>
+                        </Grid.GestureRecognizers>
+                        <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
+                        <Label Text="Добавить" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
+                    </Grid>
+                </Grid>
+            </ScrollView>
+        </Frame>
+    </Grid>
+</ContentPage>

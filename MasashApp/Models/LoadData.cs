@@ -2,6 +2,9 @@
 
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Security.Cryptography;
+using System.Xml.Linq;
 
 namespace MasashApp.Models
 {
@@ -24,45 +27,23 @@ namespace MasashApp.Models
             {
                 { "masterId", master._id }
             });
-            if (review_res != "")
+            if(review_res != "")
             {
-                if (review_res[0] != '{')
+                var parsing_review = StaticData.API.ParsingListData(review_res);
+                for (int j = 0; j < parsing_review.Count; j++)
                 {
-                    var parsing_review = StaticData.API.ParsingListData(review_res);
-                    for (int j = 0; j < parsing_review.Count; j++)
-                    {
-                        var item_review = parsing_review[j];
-                        Model_review review = new Model_review()
-                        {
-                            _id = item_review["_id"],
-                            Name = item_review["name"],
-                            Description = item_review["decription"],
-                            Star = Convert.ToInt32(item_review["star"]),
-                            Date = StaticData.API.GetDateFromString(item_review["date"]),
-                        };
-                        master.Reviews.Add(review);
-                    }
-                }
-                else
-                {
-                    var parsing_review = StaticData.API.ParsingData(review_res);
-
-                    var Name = parsing_review["name"];
-                    var Description = parsing_review["decription"];
-                    var Star = Convert.ToInt32(parsing_review["star"]);
-                    var d = StaticData.API.GetDateFromString(parsing_review["date"]);
-
-                    Model_review review = new Model_review()
-                    {
-                        _id = parsing_review["_id"],
-                        Name = parsing_review["name"],
-                        Description = parsing_review["decription"],
-                        Star = Convert.ToInt32(parsing_review["star"]),
-                        Date = StaticData.API.GetDateFromString(parsing_review["date"]),
-                    };
+                    var item_review = parsing_review[j];
+                    Model_review review = new Model_review();
+                    review._id = item_review["_id"];
+                    review.Name = item_review["name"];
+                    review.AppointmentId = item_review["appointmentID"];
+                    review.Description = item_review["description"];
+                    review.Star = Convert.ToInt32(item_review["star"]);
+                    review.Date = StaticData.API.GetDateFromString(item_review["date"]);
                     master.Reviews.Add(review);
                 }
             }
+            
         }
         /// <summary>
         /// Загрузка списка пользователей кто записан на прием
@@ -80,6 +61,8 @@ namespace MasashApp.Models
             {
 
                 var parsing_appointment = StaticData.API.ParsingListData(appointment_res);
+                StaticData.User.Appointment_dates = new ObservableCollection<Model_appointment_date>();
+                master.Appointment_dates = new ObservableCollection<Model_appointment_date>();
                 for (int j = 0; j < parsing_appointment.Count; j++)
                 {
                     var item_appointment = parsing_appointment[j];
@@ -141,6 +124,12 @@ namespace MasashApp.Models
                             },
                             Catergory_Item_Sevice = service_Items
                         };
+
+                        if(appointment.User.Phone == StaticData.User.Phone)
+                        {
+                            StaticData.User.Appointment_dates.Add(appointment);
+                        }
+
                         master.Appointment_dates.Add(appointment);
                     }
                 }
@@ -178,11 +167,11 @@ namespace MasashApp.Models
             {
                 master.Catergory_Sevice = new System.Collections.ObjectModel.ObservableCollection<Model_service_catogory>();
 
-                var values = JsonConvert.DeserializeObject<List<Dictionary<string, Object>>>(CategoryServices_res);
+                var values = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(CategoryServices_res);
 
                 for (int i = 0; i < values.Count; i++)
                 {
-                    Dictionary<string, Object> item = values[i];
+                    Dictionary<string, object> item = values[i];
                     if (item != null)
                     {
                         Model_service_catogory catogory = new Model_service_catogory();
@@ -192,7 +181,7 @@ namespace MasashApp.Models
 
                         catogory.Items = new System.Collections.ObjectModel.ObservableCollection<Model_service_item>();
 
-                        var services = JsonConvert.DeserializeObject<List<Dictionary<string, Object>>>(item["services"].ToString());
+                        var services = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(item["services"].ToString());
 
                         for (int j = 0; j < services.Count; j++)
                         {
@@ -264,9 +253,9 @@ namespace MasashApp.Models
             }
         }
 
-        public List<Dictionary<string, Object>> KeyValues(string json)
+        public List<Dictionary<string, object>> KeyValues(string json)
         {
-            List<Dictionary<string, Object>> result = new List<Dictionary<string, Object>>();
+            List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
 
             if(json != null && json != "")
             {

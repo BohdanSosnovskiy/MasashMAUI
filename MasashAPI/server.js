@@ -504,7 +504,17 @@ app.post('/get_reviews', async function(req,res){
     let db = new DataBase(undefined,db_name)
     await db.connectDB()
     db.changeCollection('Reviews')
-    res.send(await db.getFind({masterId: req.body.masterId}))
+    let Reviews = await db.getFind({masterId: req.body.masterId})
+    if(Reviews != null && Reviews != undefined)
+    {
+        if(!Array.isArray(Reviews))
+        {
+            let mass = []
+            mass.push(Reviews)
+            Reviews = mass
+        }
+    }
+    res.send(Reviews)
 })
 
 app.post('/get_appointment', async function(req,res){
@@ -578,6 +588,29 @@ app.post('/add_schedule', async function(req,res){
 
     let obj_schedule = await db.insert(schedule)
     let id = obj_schedule.insertedId
+    res.send(id)
+})
+
+app.post('/add_review', async function(req,res){
+    let db = new DataBase(undefined,db_name)
+    await db.connectDB()
+    db.changeCollection('Reviews')
+    console.log("Добавление отзыва на " + req.body.date)
+    console.log("Мастером: "+ req.body.masterId)
+    console.log("Имя: "+ req.body.name + " - " + req.body.description)
+    console.log("Звезд: "+ req.body.star)
+
+    let review = {
+        masterId: req.body.masterId,
+        date: req.body.date,
+        name: req.body.name,
+        description: req.body.description,
+        appointmentID: req.body.appointmentID,
+        star:req.body.star
+    }
+
+    let obj_review = await db.insert(review)
+    let id = obj_review.insertedId
     res.send(id)
 })
 

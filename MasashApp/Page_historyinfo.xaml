@@ -24,21 +24,79 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width=".1*"/>
             </Grid.ColumnDefinitions>
-            
+
             <HorizontalStackLayout Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="60">
-                <Grid Margin="5,0,5,0" VerticalOptions="Fill" HorizontalOptions="Fill">
+                <Grid x:Name="NextAppointment" Margin="5,0,5,0" VerticalOptions="Fill" HorizontalOptions="Fill">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="NextAppointment_Toch"/>
+                    </Grid.GestureRecognizers>
                     <Label Text="Будущие (0)" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
                     <BoxView BackgroundColor="Aqua" HorizontalOptions="Fill" VerticalOptions="End" HeightRequest="4"/>
                 </Grid>
-                <Grid Margin="5,0,5,0" VerticalOptions="Fill" HorizontalOptions="Fill">
+                <Grid x:Name="PrewAppointment" Margin="5,0,5,0" VerticalOptions="Fill" HorizontalOptions="Fill">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PrewAppointment_Toch"/>
+                    </Grid.GestureRecognizers>
                     <Label Text="Предыдущие (0)" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
                     <BoxView BackgroundColor="Aqua" HorizontalOptions="Fill" VerticalOptions="End" HeightRequest="4"/>
                 </Grid>
-                <Grid Margin="5,0,5,0" VerticalOptions="Fill" HorizontalOptions="Fill">
+                <Grid x:Name="CancelAppointment" Margin="5,0,5,0" VerticalOptions="Fill" HorizontalOptions="Fill">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="CancelAppointment_Toch"/>
+                    </Grid.GestureRecognizers>
                     <Label Text="Отмененые (0)" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
                     <BoxView BackgroundColor="Aqua" HorizontalOptions="Fill" VerticalOptions="End" HeightRequest="4"/>
                 </Grid>
             </HorizontalStackLayout>
         </Grid>
+        <ScrollView Margin="10,130,10,50">
+            <StackLayout x:Name="Stack_Appointment">
+                
+            </StackLayout>
+        </ScrollView>
+        <!--<Frame BackgroundColor="#f2e9fe" Margin="10,0,10,50" BorderColor="Transparent" Padding="0" HeightRequest="180" HorizontalOptions="Fill" VerticalOptions="Start">
+    <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+        <BoxView BackgroundColor="#dfccff" Margin="-1,-1,-1,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="30"/>
+        <Label Margin="10,5,0,0" Text="08:00 - 09:20" TextColor="Black"/>
+        <Image Source="icon_new.png" Margin="0, -20, 0, 0" HeightRequest="70" WidthRequest="70"  HorizontalOptions="End" VerticalOptions="Start" Aspect="AspectFit">
+            <Image.Behaviors>
+                <toolkit:IconTintColorBehavior TintColor="#8e79b2" />
+            </Image.Behaviors>
+        </Image>
+        <ScrollView Margin="0,30,0,50" HorizontalOptions="Fill" VerticalOptions="Fill">
+            <VerticalStackLayout Margin="10,0,0,0">
+                <Label Text="Мастер: Челяпина Зоя" TextColor="Black" FontFamily="OpenSans-Semibold.ttf"/>
+                <Label Text="Комплекс - 234 грн" FontSize="13" TextColor="Black" />
+                <Label Text="Комплекс - 234 грн" FontSize="13" TextColor="Black" />
+                <Label Text="Комплекс - 234 грн" FontSize="13" TextColor="Black" />
+                <Label Text="Комплекс - 234 грн" FontSize="13" TextColor="Black" />
+                <Label Text="Комплекс - 234 грн" FontSize="13" TextColor="Black" />
+            </VerticalStackLayout>
+        </ScrollView>
+        <Grid Margin="-1,0,-1,-1" HeightRequest="50" BackgroundColor="#9c8fb2" HorizontalOptions="Fill" VerticalOptions="End">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="comment.png" HeightRequest="70" WidthRequest="70"  HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="#dfccff" />
+                </Image.Behaviors>
+            </Image>
+            <Image Grid.Column="1" Source="icon_star.png" HeightRequest="70" WidthRequest="70"  HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="#dfccff" />
+                </Image.Behaviors>
+            </Image>
+            <Image Grid.Column="2" Source="trash.png" HeightRequest="70" WidthRequest="70"  HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="#dfccff" />
+                </Image.Behaviors>
+            </Image>
+        </Grid>
+    </Grid>
+</Frame>-->
+        
     </Grid>
 </ContentPage>

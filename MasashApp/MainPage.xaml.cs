@@ -400,7 +400,10 @@ namespace MasashApp
         {
             if(StaticData.User != null)
             {
-                PathImg = StaticData.User.PathImg;
+                if (StaticData.User.PathImg != "")
+                {
+                    PathImg = StaticData.User.PathImg;
+                }
             }
         }
 

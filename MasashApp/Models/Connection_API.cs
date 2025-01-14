@@ -46,6 +46,15 @@ namespace MasashApp.Models
             catch (Exception ex)
             {
                 isConnect = false;
+                var alert = new ModalMessage()
+                {
+                    IsButtonVisible = false,
+                    Text_yes = "Удалить",
+                    Text_no = "Отмена",
+                    Title_Message = "Ошибка",
+                    Message = $"{ex.Message}"
+                };
+                StaticData.linkMainPage.Navigation.PushModalAsync(alert, false);
                 Console.WriteLine($"ERROR:{ex.Message}");
             }
         }
@@ -138,6 +147,15 @@ namespace MasashApp.Models
             }
             catch (Exception e)
             {
+                var alert = new ModalMessage()
+                {
+                    IsButtonVisible = false,
+                    Text_yes = "Удалить",
+                    Text_no = "Отмена",
+                    Title_Message = "Ошибка",
+                    Message = $"{e.Message}"
+                };
+                await StaticData.linkMainPage.Navigation.PushModalAsync(alert, false);
                 Console.WriteLine(e.Message);
                 return "error";
             }
@@ -261,6 +279,15 @@ namespace MasashApp.Models
             }
             catch (Exception ex) 
             {
+                var alert = new ModalMessage()
+                {
+                    IsButtonVisible = false,
+                    Text_yes = "Удалить",
+                    Text_no = "Отмена",
+                    Title_Message = "Ошибка",
+                    Message = $"{ex.Message}"
+                };
+                await StaticData.linkMainPage.Navigation.PushModalAsync(alert, false);
                 Console.WriteLine($"ERROR:{ex.Message}");
                 return null;
             }
@@ -278,6 +305,15 @@ namespace MasashApp.Models
             }
             catch (Exception ex)
             {
+                var alert = new ModalMessage()
+                {
+                    IsButtonVisible = false,
+                    Text_yes = "Удалить",
+                    Text_no = "Отмена",
+                    Title_Message = "Ошибка",
+                    Message = $"{ex.Message}"
+                };
+                await StaticData.linkMainPage.Navigation.PushModalAsync(alert, false);
                 Console.WriteLine($"ERROR:{ex.Message}");
             }
         }
@@ -291,6 +327,15 @@ namespace MasashApp.Models
             }
             catch (Exception ex) 
             {
+                var alert = new ModalMessage()
+                {
+                    IsButtonVisible = false,
+                    Text_yes = "Удалить",
+                    Text_no = "Отмена",
+                    Title_Message = "Ошибка",
+                    Message = $"{ex.Message}"
+                };
+                await StaticData.linkMainPage.Navigation.PushModalAsync(alert, false);
                 Console.WriteLine($"ERROR:{ex.Message}");
             }
         }
@@ -307,6 +352,15 @@ namespace MasashApp.Models
             }
             catch (Exception ex)
             {
+                var alert = new ModalMessage()
+                {
+                    IsButtonVisible = false,
+                    Text_yes = "Удалить",
+                    Text_no = "Отмена",
+                    Title_Message = "Ошибка",
+                    Message = $"{ex.Message}"
+                };
+                await StaticData.linkMainPage.Navigation.PushModalAsync(alert, false);
             }
         }
 
@@ -359,6 +413,15 @@ namespace MasashApp.Models
                 }
                 catch (Exception ex)
                 {
+                    var alert = new ModalMessage()
+                    {
+                        IsButtonVisible = false,
+                        Text_yes = "Удалить",
+                        Text_no = "Отмена",
+                        Title_Message = "Ошибка",
+                        Message = $"{ex.Message}"
+                    };
+                    await StaticData.linkMainPage.Navigation.PushModalAsync(alert, false);
                     Console.WriteLine($"ERROR:{ex.Message}");
                 }
             }

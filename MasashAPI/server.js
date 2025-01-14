@@ -208,12 +208,14 @@ app.post('/getUserInfoByPhone', async function(req,res){
     let user = await db.getFind({phone: body.phone})
     if(user != null)
     {
-        res.send(user)
+        if(!Array.isArray(user))
+        {
+            let mass = []
+            mass.push(user)
+            user = mass
+        }
     }
-    else
-    {
-        res.send("error")
-    }
+    res.send(user)
 })
 
 app.post('/set_user_master', async function(req,res){

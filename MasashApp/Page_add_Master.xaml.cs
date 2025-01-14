@@ -121,6 +121,15 @@ public partial class Page_add_Master : ContentPage
         }
         catch(Exception ex)
         {
+            var alert = new ModalMessage()
+            {
+                IsButtonVisible = false,
+                Text_yes = "Удалить",
+                Text_no = "Отмена",
+                Title_Message = "Ошибка",
+                Message = $"{ex.Message}"
+            };
+            await StaticData.linkMainPage.Navigation.PushModalAsync(alert, false);
             Console.WriteLine($"ERROR: {ex.Message}");
         }
         

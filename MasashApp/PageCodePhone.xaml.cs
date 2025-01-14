@@ -103,6 +103,7 @@ public partial class PageCodePhone : ContentPage
         else
         {
             Dictionary<string, string> parsing = StaticData.API.ParsingData(result);
+            
 
             StaticData.User = new Model_user()
             {

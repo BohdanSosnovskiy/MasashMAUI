@@ -41,7 +41,7 @@
             </Grid>
             
             <Frame BackgroundColor="IndianRed" BorderColor="Transparent" CornerRadius="5"  Margin="0, 5, 45, 0" Padding="0" HeightRequest="20" WidthRequest="30" HorizontalOptions="End" VerticalOptions="Start">
-                <Label Text="999" FontSize="15" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label x:Name="Labal_CountNotification" Text="" FontSize="15" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
             </Frame>
         </Grid>
         <Grid Margin="0,60,0,0">

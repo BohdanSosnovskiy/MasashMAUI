@@ -16,6 +16,7 @@ public partial class PopUp_AddShaduleCurrentDay : ContentPage
         Loaded += Page_Loaded;
         BindingContext = this;
         added_date = date;
+        Label_DateShadule.Text = $"{date.Day}.{date.Month}.{date.Year}";
     }
 
     protected override bool OnBackButtonPressed()

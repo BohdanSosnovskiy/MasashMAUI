@@ -251,6 +251,15 @@ namespace MasashApp.Models
             }
             catch (Exception ex)
             {
+                var alert = new ModalMessage()
+                {
+                    IsButtonVisible = false,
+                    Text_yes = "Удалить",
+                    Text_no = "Отмена",
+                    Title_Message = "Ошибка",
+                    Message = $"{ex.Message}"
+                };
+                await StaticData.linkMainPage.Navigation.PushModalAsync(alert, false);
             }
         }
 

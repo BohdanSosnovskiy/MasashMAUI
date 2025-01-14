@@ -20,10 +20,12 @@ public partial class ShaduleManager : ContentPage
 
     public bool isViewEmty { get; set; }
     public bool isViewShadule { get; set; }
+    public int Count_Notifications { get; set; }
 
     public ShaduleManager()
 	{
 		InitializeComponent();
+        Current_shedule = null;
         Loaded += ShaduleManager_Loaded;
         ListLabelsTime = new List<Label>()
         {
@@ -112,9 +114,18 @@ public partial class ShaduleManager : ContentPage
 
     public async void Add_ShaduleCurrentDay(object sender, TappedEventArgs e)
     {
-        PopUp_AddShaduleCurrentDay popUp_Add = new PopUp_AddShaduleCurrentDay(SelectedDate);
-        popUp_Add.CreatedSheduleEvent += PopUp_Add_CreatedSheduleEvent;
-        await Navigation.PushModalAsync(popUp_Add, false);
+        if(Current_shedule == null)
+        {
+            PopUp_AddShaduleCurrentDay popUp_Add = new PopUp_AddShaduleCurrentDay(SelectedDate);
+            popUp_Add.CreatedSheduleEvent += PopUp_Add_CreatedSheduleEvent;
+            await Navigation.PushModalAsync(popUp_Add, false);
+        }
+        else
+        {
+
+
+        }
+        
     }
 
     private void PopUp_Add_CreatedSheduleEvent(Model_schedule shedule)

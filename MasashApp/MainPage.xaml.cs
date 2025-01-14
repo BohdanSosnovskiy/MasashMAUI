@@ -361,6 +361,15 @@ namespace MasashApp
             catch (Exception ex)
             {
                 Console.WriteLine($"{ex.Message}");
+                var alert = new ModalMessage()
+                {
+                    IsButtonVisible = false,
+                    Text_yes = "Удалить",
+                    Text_no = "Отмена",
+                    Title_Message = "Ошибка",
+                    Message = $"{ex.Message}"
+                };
+                Navigation.PushModalAsync(alert, false);
             }
             loadData = new LoadData();
         }

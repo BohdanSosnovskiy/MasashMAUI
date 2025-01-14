@@ -54,6 +54,7 @@ namespace MasashApp.Platforms.iOS
                 Console.WriteLine($"SendNotification: создан тригер на 0.25 секунды");
             }
             Console.WriteLine($"SendNotification: вызов Current.AddNotificationRequest");
+            Console.WriteLine($"Notification: ID {messageId.ToString()}");
             var request = UNNotificationRequest.FromIdentifier(messageId.ToString(), content, trigger);
             UNUserNotificationCenter.Current.AddNotificationRequest(request, (err) =>
             {

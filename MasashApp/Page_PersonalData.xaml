@@ -34,7 +34,9 @@
                     <Entry x:Name="Entry_Email" Margin="10,0,0,0" Keyboard="Email" HorizontalOptions="Fill" VerticalOptions="Center" FontSize="15" TextColor="Black" Placeholder="Email"/>
                 </Frame>
                 <Grid Margin="0,30,0,0" HorizontalOptions="Fill" VerticalOptions="Start" HeightRequest="50" BackgroundColor="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray100}}">
-                    
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Save_Touch"/>
+                    </Grid.GestureRecognizers>
                     <Image Source="mramor.jpg" Margin="0, 0, 0, 0" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFill"/>
                     <Label Text="Сохранить" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
                 </Grid>

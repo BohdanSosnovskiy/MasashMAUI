@@ -614,6 +614,27 @@ app.post('/add_review', async function(req,res){
     res.send(id)
 })
 
+app.post('/update_infoUser', async function(req,res){
+    let db = new DataBase(undefined,db_name)
+    await db.connectDB()
+    db.changeCollection('Users')
+    console.log("Обновление данных пользователя " + req.body.userId)
+    console.log("Имя: "+ req.body.name + " - " + req.body.name)
+    console.log("Телефон: "+ req.body.phone)
+    console.log("День Рождения: "+ req.body.birthday)
+    console.log("Email: "+ req.body.email)
+
+    let userUpdate = {
+        name: req.body.name,
+        phone: req.body.phone,
+        birthday: req.body.birthday,
+        email: req.body.email
+    }
+
+    await db.update({phone: req.body.phone},userUpdate)
+    res.send(req.body.userId)
+})
+
 app.post('/add_Appointment', async function(req,res){
     let db = new DataBase(undefined,db_name)
     await db.connectDB()

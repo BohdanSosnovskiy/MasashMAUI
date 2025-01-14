@@ -348,7 +348,7 @@ namespace MasashApp
             IsNullServise = true;
             IsSelectedServise = false;
             Loaded += MainPage_Loaded;
-
+            notificationManager = Application.Current?.Windows[0].Page?.Handler?.MauiContext?.Services.GetService<INotificationManagerService>();
             StaticData.linkMainPage = this;
             Grid_SelectedCategorysItems.BindingContext = this;
             HeightRequestSelectedCategorysItems = 40;
@@ -382,9 +382,9 @@ namespace MasashApp
 
         private void MainPage_Loaded(object? sender, EventArgs e)
         {
-            //loadData.LoadDataMasters();
             UpdateListService();
             UpdateImgUser();
+            loadData.LoadDataMasters();
         }
 
         public void UpdateImgUser()
@@ -630,7 +630,11 @@ namespace MasashApp
 
         private async void OpenSideBar(object sender, SwipedEventArgs e)
         {
-            await Navigation.PushModalAsync(new SideBar(), false);
+            if(StaticData.User.IsMaster || StaticData.User.IsAdmin)
+            {
+                loadData.LoadDataMasters();
+                await Navigation.PushModalAsync(new SideBar(), false);
+            }
         }
 
         public async void SelectAuth_Touch(object sender, TappedEventArgs e)
@@ -680,15 +684,19 @@ namespace MasashApp
         {
             await loadData.LoadDataMasters();
             Console.WriteLine("Загрузка завершена");
+        }
+        public INotificationManagerService? notificationManager;
+        public async Task Notification(string title, string body, DateTime? date = null)
+        {
             // Предположим, что приложение использует одно окно.
-            INotificationManagerService? notificationManager = Application.Current?.Windows[0].Page?.Handler?.MauiContext?.Services.GetService<INotificationManagerService>();
+            
             //PermissionStatus status = await Permissions.RequestAsync<NotificationPermission>(); // для андроида
-            await Task.Delay(100).ContinueWith(t => 
+            await Task.Delay(100).ContinueWith(t =>
             {
                 if (notificationManager != null)
                 {
                     // Scheduled send
-                    notificationManager.SendNotification("Успех", "Данные были загружены");
+                    notificationManager.SendNotification(title,body,date);
 
                     // Receive
                     notificationManager.NotificationReceived += (sender, eventArgs) =>
@@ -707,7 +715,6 @@ namespace MasashApp
                     Console.WriteLine("notificationManager пустой");
                 }
             });
-            
         }
 
         public async void CreateSeans_Touch(object sender, TappedEventArgs e)
@@ -735,10 +742,31 @@ namespace MasashApp
                     { "services", str_servicesId},
                     { "userId", StaticData.GUID_User}
                 });
+
+                DateTime NotifyDate = SelectedTime.Value.AddMinutes(-30);
+                await Notification("Напоминание", $"У вас запись на прием {SelectedTimeString}", NotifyDate);
+                await loadData.LoadDataMasters();
+                var alert = new ModalMessage()
+                {
+                    IsButtonVisible = false,
+                    Text_yes = "Удалить",
+                    Text_no = "Отмена",
+                    Title_Message = "Вы записаны",
+                    Message = $"Вы успешно записаны на {SelectedTimeString}"
+                };
+                await Navigation.PushModalAsync(alert, false);
             }
             else
             {
-
+                var alert = new ModalMessage()
+                {
+                    IsButtonVisible = false,
+                    Text_yes = "Удалить",
+                    Text_no = "Отмена",
+                    Title_Message = "Ошибка",
+                    Message = $"Выбирите мастера, его услуги и время"
+                };
+                await Navigation.PushModalAsync(alert, false);
             }
         }
     }

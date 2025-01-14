@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsFirstTimeProjectOpen>False</IsFirstTimeProjectOpen>
     <ActiveDebugFramework>net8.0-ios</ActiveDebugFramework>
-    <ActiveDebugProfile>iPhone Alex King</ActiveDebugProfile>
+    <ActiveDebugProfile>Локальное устройство</ActiveDebugProfile>
     <SelectedPlatformGroup>LocalDevice</SelectedPlatformGroup>
     <DeveloperId>DJJXDY3R95</DeveloperId>
     <DevelopmentTeamId>DJJXDY3R95</DevelopmentTeamId>

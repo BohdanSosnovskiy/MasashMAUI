@@ -2,7 +2,6 @@
 
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Security.Cryptography;
 using System.Xml.Linq;
 
@@ -211,6 +210,7 @@ namespace MasashApp.Models
         {
             try
             {
+                StaticData.Masters = new ObservableCollection<Model_Master>();
                 var result = await StaticData.API.POST("/get_masters", new Dictionary<string, string>());
                 List<Dictionary<string, string>> parsing = StaticData.API.ParsingListData(result);
                 Console.WriteLine();
@@ -240,6 +240,7 @@ namespace MasashApp.Models
                     //Расписание мастера
                     await LoadDataSchedule(master);
 
+                    //Категории и услуги
                     await LoadDataCategoryServices(master);
 
                     //Кто записан на прием
